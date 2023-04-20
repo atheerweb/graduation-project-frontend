@@ -5,10 +5,14 @@ const theme = createTheme({
         primary: { main: "rgb(255, 153, 51)" },
         secondary: { main: "rgb(0, 153, 221)" },
         accent: { 
-            main: "rgb(151, 151, 151)",
+            primary: "rgb(151, 151, 151)",
+            secondary: "rgb(217 217 217)",
             light: "#fff",
             dark: "#000"
         }
+    },
+    typography: {
+        fontFamily: "'Tajawal', sans-serif"
     }
 });
 

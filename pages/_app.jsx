@@ -1,4 +1,9 @@
 import '@/styles/globals.css';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+import MultipageLayout from '@/components/layouts/MultipageLayout/MultipageLayout';
 import { ThemeProvider } from '@mui/material';
 import { Provider } from 'react-redux';
 import theme from '@/styles/theme';
@@ -8,7 +13,9 @@ const App = ({ Component, pageProps }) => {
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
-        <Component {...pageProps} />
+        <MultipageLayout>
+          <Component {...pageProps} />
+        </MultipageLayout>
       </ThemeProvider>
     </Provider>
   )
