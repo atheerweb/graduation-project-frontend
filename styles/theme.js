@@ -12,7 +12,16 @@ const theme = createTheme({
         }
     },
     typography: {
-        fontFamily: "'Tajawal', sans-serif"
+        fontFamily: "'Tajawal', sans-serif",
+        h1: {
+            fontSize: 48
+        },
+        h2: {
+            fontSize: 34
+        },
+        h3: {
+            fontSize: 24
+        }
     }
 });
 

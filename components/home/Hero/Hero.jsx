@@ -9,8 +9,8 @@ const Hero = () => {
 
     return (
         <Box sx={{height: "650px", backgroundImage: "url('/images/freelancer.png')", backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat", filter: "saturate(150%)", padding: "0 75px", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "flex-end"}}>
-            <Typography variant="h1" color={theme.palette.accent.light} fontSize={48} maxWidth={"642px"} textAlign="right">أبحث عن مستقلين مميزين في الوطن العربي</Typography>
-            <Typography variant="h2" color="rgb(190, 190, 190)" fontSize={24} maxWidth="603px" textAlign="right" lineHeight="37px" paddingY="30px">منصة علمني للمستقلين هي فرع من منصة علمني تمتاز بالتركيز علي توصيل الكوادر بأصحاب الأعمال</Typography>
+            <Typography variant="h1" color={theme.palette.accent.light} maxWidth={"642px"} textAlign="right">أبحث عن مستقلين مميزين في الوطن العربي</Typography>
+            <Typography variant="h3" color="rgb(190, 190, 190)" maxWidth="603px" textAlign="right" lineHeight="37px" paddingY="30px">منصة علمني للمستقلين هي فرع من منصة علمني تمتاز بالتركيز علي توصيل الكوادر بأصحاب الأعمال</Typography>
             <Box sx={{display: "flex", flexDirection: "column", alignItems: "flex-end", gap: "5px"}}>
                 <Typography color="rgb(190, 190, 190)" lineHeight="37px">أكثر التخصصات طلباً</Typography>
                 <Stack direction="row" spacing="11px">
