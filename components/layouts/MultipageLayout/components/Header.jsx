@@ -56,7 +56,7 @@ const Header = () => {
                     ))
                 }
             </Stack>
-            <Image width={62} height={41} src="/images/logo.png" alt="علمنى" priority />
+            <Image width={62} height={41} src="/images/header_logo.png" alt="علمنى" priority />
         </Box>
     )
 }
