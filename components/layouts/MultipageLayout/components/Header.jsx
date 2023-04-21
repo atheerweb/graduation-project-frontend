@@ -11,7 +11,7 @@ const Header = () => {
     const router = useRouter();
 
     return (
-        <Box sx={{width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center", padding: "21px 16px"}}>
+        <Box sx={{backgroundColor: "white", width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center", padding: "21px 16px", position: "sticky", top: 0, zIndex: 999}}>
             <Stack direction="row" spacing="20px">
                 <Button variant="contained" sx={{color: theme.palette.accent.light}}>دخول</Button>
                 <Button variant="outlined" sx={{borderColor: theme.palette.accent.secondary}}>إنشاء حساب</Button>

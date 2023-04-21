@@ -24,7 +24,15 @@ export const constantsSlice = createSlice({
                     <LinkedIn key={2} sx={{color: color, cursor: "pointer"}} />,
                     <Instagram key={3} sx={{color: color, cursor: "pointer"}} />
                 ]
-            )
+            ),
+            heroButtons: [
+                "شاهد المزيد",
+                "إدخال بيانات",
+                "ترجمة و صوتيات",
+                "تسويق",
+                "برمجة",
+                "تصميم"
+            ]
         }
     }
 });
