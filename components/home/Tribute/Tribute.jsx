@@ -1,12 +1,13 @@
 import { Box, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
+import styles from "@/styles/modules/home/tribute.module.css";
 
 const Tribute = () => {
     const theme = useTheme();
 
     return (
-        <Box sx={{width: "100%", height: "300px", backgroundImage: "url('/images/coffee.png')", backgroundPosition: "center", backgroundRepeat: "no-repeat", backgroundSize: "cover", backgroundAttachment: "fixed", display: "grid", placeItems: "center"}}>
-            <Typography variant="h1" color={theme.palette.accent.light} textAlign="center">
+        <Box className={styles.tribute}>
+            <Typography variant="h1" sx={{color: theme.palette.accent.light, textAlign: "center"}}>
                 منصة عربية واعدة لتوصيل الشركات بأصحاب الأعمال
             </Typography>
         </Box>

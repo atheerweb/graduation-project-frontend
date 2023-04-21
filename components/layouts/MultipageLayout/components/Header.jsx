@@ -8,6 +8,7 @@ import { useRouter } from "next/router";
 import useMediaQuery from '@mui/material/useMediaQuery';
 import SearchIcon from '@mui/icons-material/Search';
 import MenuIcon from '@mui/icons-material/Menu';
+import styles from '@/styles/modules/layouts/MultipageLayout/layout.module.css';
 
 const Header = () => {
     const navLinks = useSelector(state => state.constants.value.navLinks);
@@ -22,7 +23,7 @@ const Header = () => {
     }
 
     return (
-        <Box sx={{backgroundColor: "white", boxShadow: `0 0 5px ${theme.palette.accent.primary}`, width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center", padding: "21px 16px", position: "sticky", top: 0, zIndex: 999}}>
+        <Box className={styles.mainNav} sx={{backgroundColor: theme.palette.accent.light, boxShadow: `0 0 5px ${theme.palette.accent.primary}`}}>
             <MenuIcon sx={{color: theme.palette.primary.main, display: !media && "none"}} onClick={handleMenuClick} />
             <Stack direction="row" spacing="20px" display={media && "none"}>
                 <Button variant="contained" sx={{color: theme.palette.accent.light}}>دخول</Button>
@@ -31,7 +32,7 @@ const Header = () => {
             <TextField 
                 size="small"
                 placeholder="ابحث عن مستقلين"
-                className="searchbar"
+                className={styles.mainNavTextField}
                 InputProps={{ 
                     startAdornment: (
                         <InputAdornment position="start">
@@ -41,10 +42,8 @@ const Header = () => {
                 }}
                 sx={{
                         display: media && "none",
-                        width: "409px",
                         "&::placeholder": {
                             color: theme.palette.accent.primary,
-                            textAlign: "right"
                         },
                         "& .MuiOutlinedInput-root": {
                             "& fieldset": {
@@ -57,11 +56,9 @@ const Header = () => {
                 {
                     navLinks.map((link, index) => (
                         <Link
-                            className="navLinks"
+                            className={styles.navLinks}
                             sx={{
-                                textDecoration: "none",
                                 color: link.href === router.pathname ? theme.palette.accent.dark : theme.palette.accent.primary,
-                                cursor: "pointer",
                                 fontWeight: link.href === router.pathname && "bold"
                             }}
                             key={index}

@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { useTheme } from "@mui/material/styles";
 import { useRouter } from "next/router";
 import useMediaQuery from '@mui/material/useMediaQuery';
+import styles from '@/styles/modules/layouts/MultipageLayout/layout.module.css';
 
 const Menu = (props) => {
     const navLinks = useSelector(state => state.constants.value.navLinks);
@@ -12,9 +13,9 @@ const Menu = (props) => {
     const media = useMediaQuery("(max-width: 1100px)");
 
     return (
-        <Box sx={{width: "90%", backgroundColor: theme.palette.accent.light, borderRadius: "26px", padding: "25px", display: !media ? "none" : props.display, flexDirection: "column", alignItems: "center", gap: "10px", position: "fixed", top: "100px", left: "5%"}}>
+        <Box className={styles.menuNav} sx={{backgroundColor: theme.palette.accent.light, display: !media ? "none" : props.display}}>
             <TextField 
-                className="searchbar"
+                className={styles.menuNavTextField}
                 size="small"
                 placeholder="ابحث عن مستقلين"
                 InputProps={{ 
@@ -25,10 +26,8 @@ const Menu = (props) => {
                     ),
                 }}
                 sx={{
-                        width: "100%",
                         "&::placeholder": {
-                            color: theme.palette.accent.primary,
-                            textAlign: "right"
+                            color: theme.palette.accent.primary
                         },
                         "& .MuiOutlinedInput-root": {
                             "& fieldset": {
@@ -42,12 +41,9 @@ const Menu = (props) => {
                 {
                     navLinks.map((link, index) => (
                         <Link
-                            className="navLinks"
+                            className={styles.menuNavLinks}
                             sx={{
-                                textDecoration: "none",
-                                textAlign: "center",
                                 color: link.href === router.pathname ? theme.palette.accent.dark : theme.palette.accent.primary,
-                                cursor: "pointer",
                                 fontWeight: link.href === router.pathname && "bold"
                             }}
                             key={index}

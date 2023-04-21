@@ -1,0 +1,24 @@
+.freelancers {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding: 84px 29px;
+}
+
+.freelancersCardsStack {
+    justify-content: center;
+    width: 100%;
+}
+
+.freelancersCardsContent {
+    text-align: right;
+    padding: 14px 16px;
+}
+
+.freelancersCardsHeader {
+    font-weight: bold;
+    margin-bottom: 2px;
+}

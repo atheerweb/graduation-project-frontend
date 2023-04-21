@@ -18,7 +18,7 @@ const Cards = (props) => {
                 subheader={props.body}
             />
             <CardContent>
-                <Typography variant="body2" color={theme.palette.accent.dark} opacity={0.6}>
+                <Typography variant="body2" sx={{color: theme.palette.accent.dark, opacity: 0.6}}>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.
