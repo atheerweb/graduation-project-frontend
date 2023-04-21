@@ -39,7 +39,14 @@ export const constantsSlice = createSlice({
                 { icon: <PeopleAltOutlined sx={{fontSize: "45px", color: color}} />, title: "أختر الكوادر المميزة" },
                 { icon: <QuestionAnswerOutlined sx={{fontSize: "45px", color: color}} />, title: "تواصل مع المستقلين" },
                 { icon: <VerifiedUserOutlined sx={{fontSize: "45px", color: color}} />, title: "ضمان الدفع الأمن " }
-            ])
+            ]),
+            freelancersCards: [
+                {title: "Freelancer One", body: "Body One"},
+                {title: "Freelancer Two", body: "Body Two"},
+                {title: "Freelancer Three", body: "Body Three"},
+                {title: "Freelancer Four", body: "Body Four"},
+                {title: "Freelancer Five", body: "Body Five"}
+            ]
         }
     }
 });
