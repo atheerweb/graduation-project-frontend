@@ -46,6 +46,11 @@ export const constantsSlice = createSlice({
                 {title: "Freelancer Three", body: "Body Three"},
                 {title: "Freelancer Four", body: "Body Four"},
                 {title: "Freelancer Five", body: "Body Five"}
+            ],
+            testimonialsCards: [
+                {title: "Testimonial One", body: "Body One"},
+                {title: "Testimonial Two", body: "Body Two"},
+                {title: "Testimonial Three", body: "Body Three"}
             ]
         }
     }
