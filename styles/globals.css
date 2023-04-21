@@ -5,3 +5,11 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
+
+a {
+  transition-duration: 0.1s;
+}
+
+a:hover {
+  opacity: 0.5;
+}

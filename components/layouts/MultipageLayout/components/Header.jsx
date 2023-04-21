@@ -11,7 +11,7 @@ const Header = () => {
     const router = useRouter();
 
     return (
-        <Box sx={{width: "100%", display: "flex", justifyContent: "space-around", alignItems: "center", padding: "10px 16px"}}>
+        <Box sx={{width: "100%", display: "flex", justifyContent: "space-between", alignItems: "center", padding: "21px 16px"}}>
             <Stack direction="row" spacing="20px">
                 <Button variant="contained" sx={{color: theme.palette.accent.light}}>دخول</Button>
                 <Button variant="outlined" sx={{borderColor: theme.palette.accent.secondary}}>إنشاء حساب</Button>
@@ -41,7 +41,8 @@ const Header = () => {
             <Stack direction="row" spacing="65px">
                 {
                     navLinks.map((link, index) => (
-                        <Link 
+                        <Link
+                            className="navLinks"
                             sx={{
                                 textDecoration: "none",
                                 color: link.href === router.pathname ? theme.palette.accent.dark : theme.palette.accent.primary,

@@ -14,7 +14,7 @@ const Footer = () => {
                 <Stack direction="row" spacing="23px" sx={{padding: "0 37px"}}>
                     {
                         footerLinks.map((link, index) => (
-                            <Link key={index} href={link.href} sx={{textDecoration: "none", color: "rgb(38, 38, 38)"}}>{link.title}</Link>
+                            <Link key={index} href={link.href} className="footerLinks" sx={{textDecoration: "none", color: "rgb(38, 38, 38)"}}>{link.title}</Link>
                         ))
                     }
                 </Stack>
