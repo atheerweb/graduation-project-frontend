@@ -1,11 +1,13 @@
 import { Card, CardHeader, Avatar, CardContent, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 const Cards = (props) => {
     const theme = useTheme();
+    const media = useMediaQuery("(max-width: 1200px)");
 
     return (
-        <Card sx={{ maxWidth: 345 }}>
+        <Card sx={{ maxWidth: media ? 250 : 345 }}>
             <CardHeader
                 avatar={
                     <Avatar src="/images/testimonials_icon.png" />

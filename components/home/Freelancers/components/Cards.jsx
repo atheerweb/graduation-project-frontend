@@ -1,13 +1,15 @@
 import { Card, CardActionArea, CardMedia, CardContent, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 const Cards = (props) => {
     const theme = useTheme();
+    const media = useMediaQuery("(max-width: 1200px)");
 
     return (
-        <Card sx={{width: "200px", borderRadius: "5px"}}>
+        <Card sx={{width: media ? "250px" : "200px", borderRadius: "5px"}}>
             <CardActionArea>
-                <CardMedia component="img" image="images/freelancers_images.png" alt="Freelancer"/>
+                <CardMedia component="img" image="images/freelancers_images.png" alt="Freelancer" />
                 <CardContent sx={{textAlign: "right", padding: "14px 16px"}}>
                   <Typography gutterBottom variant="h6" color={theme.palette.accent.dark} fontWeight="bold" marginBottom="2px">
                     {props.title}
