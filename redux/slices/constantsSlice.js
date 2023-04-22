@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Twitter, LinkedIn, Facebook, Instagram } from "@mui/icons-material";
-import { DifferenceOutlined, PeopleAltOutlined, QuestionAnswerOutlined, VerifiedUserOutlined } from "@mui/icons-material";
+import { Twitter, LinkedIn, Facebook, Instagram, DifferenceOutlined, PeopleAltOutlined, QuestionAnswerOutlined, VerifiedUserOutlined, BusinessCenterOutlined, PersonOutlineOutlined  } from "@mui/icons-material";
 
 export const constantsSlice = createSlice({
     name: "constants",
@@ -51,6 +50,10 @@ export const constantsSlice = createSlice({
                 {title: "Testimonial One", body: "Body One"},
                 {title: "Testimonial Two", body: "Body Two"},
                 {title: "Testimonial Three", body: "Body Three"}
+            ],
+            summaryStacks: [
+                {title: "مستقل", icon: <PersonOutlineOutlined />},
+                {title: "مصمم جرافيك", icon: <BusinessCenterOutlined />}
             ]
         }
     }

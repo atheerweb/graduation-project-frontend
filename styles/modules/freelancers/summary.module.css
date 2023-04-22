@@ -1,0 +1,18 @@
+.summary {
+    width: 100%;
+    padding: 25px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px
+}
+
+.summaryMainStack {
+    flex-direction: row;
+    gap: 20px;
+}
+
+.summarySecondaryStacks {
+    flex-direction: row;
+    gap: 6px;
+}
