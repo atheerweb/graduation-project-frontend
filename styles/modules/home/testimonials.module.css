@@ -6,3 +6,12 @@
     align-items: center;
     gap: 79px;
 }
+
+.testimonialsGrid {
+    width: 100%;
+    padding: 0 150px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 350px);
+    justify-content: center;
+    gap: 60px;
+}

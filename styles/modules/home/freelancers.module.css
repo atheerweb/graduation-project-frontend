@@ -8,9 +8,14 @@
     padding: 84px 29px;
 }
 
-.freelancersCardsStack {
-    justify-content: center;
+.freelancersCardsGrid {
     width: 100%;
+    padding: 0 72px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 200px);
+    justify-content: center;
+    gap: 72px;
+    flex-wrap: wrap;
 }
 
 .freelancersCardsContent {
@@ -21,4 +26,10 @@
 .freelancersCardsHeader {
     font-weight: bold;
     margin-bottom: 2px;
+}
+
+@media (max-width: 500px) {
+    .freelancersCardsGrid {
+        padding: 0 10px;
+    }
 }
