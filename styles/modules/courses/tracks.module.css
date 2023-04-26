@@ -24,8 +24,9 @@
 }
 
 .tracksCards {
-    max-width: 345px;
+    min-width: 345px;
     text-align: right;
+    transition: 0.5s; 
 }
 
 .tracksCardsSubheaderStack {
@@ -47,13 +48,26 @@
 }
 
 .tracksCardsStack {
-    padding: 18px 22px;
+    max-width: 1079px;
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 22px;
+    overflow: hidden;
+    transition: 1s;
 }
 
 .tracksIcons {
     cursor: pointer;
+}
+
+@media (max-width: 1150px) {
+    .tracksCardsStack {
+        max-width: 727px;
+    }
+}
+@media (max-width: 800px) {
+    .tracksCardsStack {
+        max-width: 345px;
+    }
 }

@@ -75,9 +75,15 @@ export const constantsSlice = createSlice({
                 programming: [
                     {title: "كورس البرمجة", subTitle: "مهندس برمجيات", ratings: 5},
                     {title: "كورس البرمجة", subTitle: "مهندس برمجيات", ratings: 5},
+                    {title: "كورس البرمجة", subTitle: "مهندس برمجيات", ratings: 5},
+                    {title: "كورس البرمجة", subTitle: "مهندس برمجيات", ratings: 5},
+                    {title: "كورس البرمجة", subTitle: "مهندس برمجيات", ratings: 5},
                     {title: "كورس البرمجة", subTitle: "مهندس برمجيات", ratings: 5}
                 ],
                 business: [
+                    {title: "كورس إدارة الأعمال", subTitle: "إدارة اعمال", ratings: 5},
+                    {title: "كورس إدارة الأعمال", subTitle: "إدارة اعمال", ratings: 5},
+                    {title: "كورس إدارة الأعمال", subTitle: "إدارة اعمال", ratings: 5},
                     {title: "كورس إدارة الأعمال", subTitle: "إدارة اعمال", ratings: 5},
                     {title: "كورس إدارة الأعمال", subTitle: "إدارة اعمال", ratings: 5},
                     {title: "كورس إدارة الأعمال", subTitle: "إدارة اعمال", ratings: 5}
@@ -85,9 +91,15 @@ export const constantsSlice = createSlice({
                 accounting: [
                     {title: "كورس المحاسبة", subTitle: "محاسبه", ratings: 5},
                     {title: "كورس المحاسبة", subTitle: "محاسبه", ratings: 5},
+                    {title: "كورس المحاسبة", subTitle: "محاسبه", ratings: 5},
+                    {title: "كورس المحاسبة", subTitle: "محاسبه", ratings: 5},
+                    {title: "كورس المحاسبة", subTitle: "محاسبه", ratings: 5},
                     {title: "كورس المحاسبة", subTitle: "محاسبه", ratings: 5}
                 ],
                 dataAnalysis: [
+                    {title: "كورس علوم البيانات", subTitle: "علوم البيانات", ratings: 5},
+                    {title: "كورس علوم البيانات", subTitle: "علوم البيانات", ratings: 5},
+                    {title: "كورس علوم البيانات", subTitle: "علوم البيانات", ratings: 5},
                     {title: "كورس علوم البيانات", subTitle: "علوم البيانات", ratings: 5},
                     {title: "كورس علوم البيانات", subTitle: "علوم البيانات", ratings: 5},
                     {title: "كورس علوم البيانات", subTitle: "علوم البيانات", ratings: 5}
@@ -95,9 +107,15 @@ export const constantsSlice = createSlice({
                 robotics: [
                     {title: "كورس الروبوتات", subTitle: "مهندس روبوتات", ratings: 5},
                     {title: "كورس الروبوتات", subTitle: "مهندس روبوتات", ratings: 5},
+                    {title: "كورس الروبوتات", subTitle: "مهندس روبوتات", ratings: 5},
+                    {title: "كورس الروبوتات", subTitle: "مهندس روبوتات", ratings: 5},
+                    {title: "كورس الروبوتات", subTitle: "مهندس روبوتات", ratings: 5},
                     {title: "كورس الروبوتات", subTitle: "مهندس روبوتات", ratings: 5}
                 ],
                 statistics: [
+                    {title: "كورس تحليل البيانات", subTitle: "إحصائي", ratings: 5},
+                    {title: "كورس تحليل البيانات", subTitle: "إحصائي", ratings: 5},
+                    {title: "كورس تحليل البيانات", subTitle: "إحصائي", ratings: 5},
                     {title: "كورس تحليل البيانات", subTitle: "إحصائي", ratings: 5},
                     {title: "كورس تحليل البيانات", subTitle: "إحصائي", ratings: 5},
                     {title: "كورس تحليل البيانات", subTitle: "إحصائي", ratings: 5}

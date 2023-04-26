@@ -7,7 +7,7 @@ const Cards = (props) => {
     const theme = useTheme();
 
     return (
-        <Card className={styles.tracksCards}>
+        <Card className={styles.tracksCards} sx={{translate: props.translate}}>
             <CardHeader
                 title={props.title}
                 subheader={

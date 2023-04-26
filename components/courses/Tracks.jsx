@@ -2,27 +2,28 @@ import { Box, Typography, Stack, Button } from "@mui/material";
 import { ArrowBackIos, ArrowForwardIos } from '@mui/icons-material';
 import Cards from "./Cards";
 import { useSelector } from "react-redux";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useTheme } from "@mui/material/styles";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import styles from "@/styles/modules/courses/tracks.module.css";
 
 const Tracks = () => {
     const state = useSelector(state => state.constants.value);
     const theme = useTheme();
-    const mediumMedia = useMediaQuery("(max-width: 1000px)");
-    const smallMedia = useMediaQuery("(max-width: 750px)");
-    const [cardsLength, setCardsLength] = useState(3);
+    const [translateCarousel, setTranslateCarousel] = useState(0);
     const [activeTrack, setActiveTrack] = useState("statistics");
-
-    useEffect(() => {
-        if (smallMedia) setCardsLength(1);
-        else if (mediumMedia) setCardsLength(2);
-        else setCardsLength(3);
-    }, [mediumMedia, smallMedia]);
 
     const handleTrackClick = (newTrack) => {
         setActiveTrack(newTrack);
+    }
+
+    const handleCarousel = (arrow) => {
+        if (arrow === "Next") {
+            Math.abs(translateCarousel) === (state.coursesTracksCards[activeTrack].length - 1) * 367 ?
+            setTranslateCarousel(0) :
+            setTranslateCarousel(previous => previous - 367)
+        } else {
+            translateCarousel < 0 && setTranslateCarousel(previous => previous + 367);
+        }
     }
 
     return (
@@ -44,14 +45,16 @@ const Tracks = () => {
                     ))
                 }
             </Stack>
-            <Stack className={styles.tracksCardsStack}>
-                <ArrowBackIos className={styles.tracksIcons} />
-                    {
-                        state.coursesTracksCards[activeTrack].slice(0, cardsLength).map((card, index) => (
-                            <Cards key={index} title={card.title} subTitle={card.subTitle} ratings={card.ratings} />
-                        ))
-                    }
-                <ArrowForwardIos className={styles.tracksIcons} />
+            <Stack direction="row" alignItems="center" padding="18px 22px">
+                <ArrowBackIos className={styles.tracksIcons} onClick={() => handleCarousel("Back")} />
+                    <Stack className={styles.tracksCardsStack}>
+                        {
+                            state.coursesTracksCards[activeTrack].map((card, index) => (
+                                <Cards key={index} title={card.title} subTitle={card.subTitle} ratings={card.ratings} translate={translateCarousel} />
+                            ))
+                        }
+                    </Stack>
+                <ArrowForwardIos className={styles.tracksIcons} onClick={() => handleCarousel("Next")} />
             </Stack>
         </Box>
     )
