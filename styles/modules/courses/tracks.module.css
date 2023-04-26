@@ -1,5 +1,6 @@
 .tracks {
     width: 100%;
+    background-color: rgb(242, 242, 242);
     padding: 37px 0;
     display: flex;
     flex-direction: column;
@@ -24,6 +25,7 @@
 .tracksCards {
     max-width: 345px;
     text-align: right;
+    cursor: pointer;
 }
 
 .tracksCardsSubheaderStack {

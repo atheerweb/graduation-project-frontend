@@ -1,14 +1,14 @@
 import { Box, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-import styles from "@/styles/modules/home/tribute.module.css";
+import styles from "@/styles/modules/common/tribute.module.css";
 
-const Tribute = () => {
+const Tribute = (props) => {
     const theme = useTheme();
 
     return (
-        <Box className={styles.tribute}>
+        <Box className={styles.tribute} sx={{backgroundImage: `url(${props.image})`}}>
             <Typography variant="h1" sx={{color: theme.palette.accent.light, textAlign: "center"}}>
-                منصة عربية واعدة لتوصيل الشركات بأصحاب الأعمال
+                {props.title}
             </Typography>
         </Box>
     )
