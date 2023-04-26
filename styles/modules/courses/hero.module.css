@@ -1,0 +1,16 @@
+.courses {
+    width: 100%;
+    padding: 0 122px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.coursesTypographyContainer {
+    max-width: 500px;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 20px;
+}

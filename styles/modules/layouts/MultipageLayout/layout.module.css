@@ -78,6 +78,7 @@
 }
 
 .footerBody {
+    max-width: 623px;
     color: rgb(77, 77, 77);
     text-align: center;
 }
