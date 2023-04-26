@@ -1,9 +1,10 @@
 .courses {
     width: 100%;
-    padding: 0 122px;
+    padding: 22px 122px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 20px;
 }
 
 .coursesTypographyContainer {
@@ -13,4 +14,14 @@
     flex-direction: column;
     align-items: flex-end;
     gap: 20px;
+}
+
+@media (max-width: 1000px) {
+    .courses {
+        flex-direction: column;
+    }
+
+    .coursesTypographyContainer {
+        text-align: center;
+    }
 }

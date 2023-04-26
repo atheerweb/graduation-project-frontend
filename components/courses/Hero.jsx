@@ -8,7 +8,7 @@ const Hero = () => {
 
     return (
         <Box className={styles.courses}>
-            <Image src={"/images/courses_hero.png"} width={338} height={425} />
+            <Image src={"/images/courses_hero.png"} width={338} height={425} alt="Hero" />
             <Box className={styles.coursesTypographyContainer}>
                 <Typography variant="h1">
                     طريقك للنجاح يبدأ من هنا

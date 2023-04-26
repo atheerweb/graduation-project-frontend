@@ -8,7 +8,7 @@ const Cards = (props) => {
         <Card>
             <CardHeader
                 avatar={
-                    <Avatar src="/images/testimonials_icon.png" />
+                    <Avatar src="/images/testimonials_icon.png" alt="Avatar" />
                 }
                 titleTypographyProps={{ variant: "h6", fontWeight: "bold" }}
                 subheaderTypographyProps={{color: theme.palette.accent.dark, opacity: 0.87}}

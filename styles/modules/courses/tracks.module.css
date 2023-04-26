@@ -9,15 +9,16 @@
 }
 
 .tracksStack {
+    padding: 0 50px;
     display: flex;
     flex-direction: row;
+    justify-content: center;
     align-items: center;
+    flex-wrap: wrap-reverse;
     gap: 10px;
 }
 
 .tracksButtons {
-    background-color: rgb(217 217 217);
-    color: black;
     padding: 4px;
     border-radius: 16px;
 }
@@ -25,7 +26,6 @@
 .tracksCards {
     max-width: 345px;
     text-align: right;
-    cursor: pointer;
 }
 
 .tracksCardsSubheaderStack {

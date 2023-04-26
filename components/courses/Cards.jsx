@@ -13,7 +13,7 @@ const Cards = (props) => {
                 subheader={
                     <Stack className={styles.tracksCardsSubheaderStack}>
                         <Rating readOnly value={props.ratings} />
-                        <Typography>إحصائى</Typography>
+                        <Typography>{props.subTitle}</Typography>
                     </Stack>
                 }
             />
