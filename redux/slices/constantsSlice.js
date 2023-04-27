@@ -63,64 +63,6 @@ export const constantsSlice = createSlice({
                 {title: "لوجو شركة", body: "لكن لا بد أن أوضح لك أن كل هذه الأفكار المغلوطة حول استنكار  النشوة وتمجيد الألم نشأت بالفعل،", date: "2023"},
                 {title: "لوجو شركة", body: "لكن لا بد أن أوضح لك أن كل هذه الأفكار المغلوطة حول استنكار  النشوة وتمجيد الألم نشأت بالفعل،", date: "2023"}
             ],
-            coursesTracks: [
-                ["programming", "مهندس برمجيات"],
-                ["business", "إدارة اعمال"],
-                ["accounting", "محاسبه"],
-                ["dataAnalysis", "علوم البيانات"],
-                ["robotics", "مهندس روبوتات"],
-                ["statistics", "إحصائي"]
-            ],
-            coursesTracksCards: {
-                programming: [
-                    {title: "كورس البرمجة", subTitle: "مهندس برمجيات", ratings: 5},
-                    {title: "كورس البرمجة", subTitle: "مهندس برمجيات", ratings: 5},
-                    {title: "كورس البرمجة", subTitle: "مهندس برمجيات", ratings: 5},
-                    {title: "كورس البرمجة", subTitle: "مهندس برمجيات", ratings: 5},
-                    {title: "كورس البرمجة", subTitle: "مهندس برمجيات", ratings: 5},
-                    {title: "كورس البرمجة", subTitle: "مهندس برمجيات", ratings: 5}
-                ],
-                business: [
-                    {title: "كورس إدارة الأعمال", subTitle: "إدارة اعمال", ratings: 5},
-                    {title: "كورس إدارة الأعمال", subTitle: "إدارة اعمال", ratings: 5},
-                    {title: "كورس إدارة الأعمال", subTitle: "إدارة اعمال", ratings: 5},
-                    {title: "كورس إدارة الأعمال", subTitle: "إدارة اعمال", ratings: 5},
-                    {title: "كورس إدارة الأعمال", subTitle: "إدارة اعمال", ratings: 5},
-                    {title: "كورس إدارة الأعمال", subTitle: "إدارة اعمال", ratings: 5}
-                ],
-                accounting: [
-                    {title: "كورس المحاسبة", subTitle: "محاسبه", ratings: 5},
-                    {title: "كورس المحاسبة", subTitle: "محاسبه", ratings: 5},
-                    {title: "كورس المحاسبة", subTitle: "محاسبه", ratings: 5},
-                    {title: "كورس المحاسبة", subTitle: "محاسبه", ratings: 5},
-                    {title: "كورس المحاسبة", subTitle: "محاسبه", ratings: 5},
-                    {title: "كورس المحاسبة", subTitle: "محاسبه", ratings: 5}
-                ],
-                dataAnalysis: [
-                    {title: "كورس علوم البيانات", subTitle: "علوم البيانات", ratings: 5},
-                    {title: "كورس علوم البيانات", subTitle: "علوم البيانات", ratings: 5},
-                    {title: "كورس علوم البيانات", subTitle: "علوم البيانات", ratings: 5},
-                    {title: "كورس علوم البيانات", subTitle: "علوم البيانات", ratings: 5},
-                    {title: "كورس علوم البيانات", subTitle: "علوم البيانات", ratings: 5},
-                    {title: "كورس علوم البيانات", subTitle: "علوم البيانات", ratings: 5}
-                ],
-                robotics: [
-                    {title: "كورس الروبوتات", subTitle: "مهندس روبوتات", ratings: 5},
-                    {title: "كورس الروبوتات", subTitle: "مهندس روبوتات", ratings: 5},
-                    {title: "كورس الروبوتات", subTitle: "مهندس روبوتات", ratings: 5},
-                    {title: "كورس الروبوتات", subTitle: "مهندس روبوتات", ratings: 5},
-                    {title: "كورس الروبوتات", subTitle: "مهندس روبوتات", ratings: 5},
-                    {title: "كورس الروبوتات", subTitle: "مهندس روبوتات", ratings: 5}
-                ],
-                statistics: [
-                    {title: "كورس تحليل البيانات", subTitle: "إحصائي", ratings: 5},
-                    {title: "كورس تحليل البيانات", subTitle: "إحصائي", ratings: 5},
-                    {title: "كورس تحليل البيانات", subTitle: "إحصائي", ratings: 5},
-                    {title: "كورس تحليل البيانات", subTitle: "إحصائي", ratings: 5},
-                    {title: "كورس تحليل البيانات", subTitle: "إحصائي", ratings: 5},
-                    {title: "كورس تحليل البيانات", subTitle: "إحصائي", ratings: 5}
-                ],
-            }
         }
     }
 });
