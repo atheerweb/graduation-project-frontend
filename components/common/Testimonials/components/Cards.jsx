@@ -1,4 +1,10 @@
-import { Card, CardHeader, Avatar, CardContent, Typography } from "@mui/material";
+// MUI Components
+import Avatar from "@mui/material/Avatar";
+import Card from "@mui/material/Card";
+import CardHeader from "@mui/material/CardHeader";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
+// Hooks
 import { useTheme } from "@mui/material/styles";
 
 const Cards = (props) => {

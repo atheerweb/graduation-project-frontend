@@ -1,7 +1,14 @@
-import { Box, Stack, Link, Typography } from "@mui/material";
+// MUI Components
+import Box from "@mui/material/Box";
+import Stack from "@mui/material/Stack";
+import Link from "@mui/material/Link";
+import Typography from "@mui/material/Typography";
+// Next Components
 import Image from "next/image";
+// Hooks
 import { useSelector } from "react-redux";
 import { useTheme } from "@mui/material/styles";
+// CSS Modules
 import styles from '@/styles/modules/layouts/MultipageLayout/layout.module.css';
 
 const Footer = () => {

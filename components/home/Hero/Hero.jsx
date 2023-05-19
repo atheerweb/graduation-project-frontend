@@ -1,8 +1,14 @@
-import { Typography, Box, Stack, Button } from "@mui/material";
+// MUI Components
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
 import ArrowCircleLeftOutlinedIcon from '@mui/icons-material/ArrowCircleLeftOutlined';
+// Hooks
 import { useTheme } from "@mui/material/styles";
 import { useSelector } from "react-redux";
 import useMediaQuery from '@mui/material/useMediaQuery';
+// CSS Modules
 import styles from "@/styles/modules/home/hero.module.css";
 
 const Hero = () => {

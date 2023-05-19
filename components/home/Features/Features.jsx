@@ -1,7 +1,13 @@
+// Components
 import Icons from "./components/Icons";
-import { Box, Grid, Typography } from "@mui/material";
+// MUI Components
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+// Hooks
 import { useSelector } from "react-redux";
 import { useTheme } from "@mui/material/styles";
+// CSS Modules
 import styles from "@/styles/modules/home/features.module.css";
 
 const Features = () => {

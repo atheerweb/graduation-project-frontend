@@ -1,0 +1,40 @@
+.signupContainer {
+    min-height: 100vh;
+    width: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.signupForm {
+    min-height: 650px;
+    max-width: 800px;
+    border: solid 1.12px rgb(224, 224, 224);
+    border-radius: 32.61px;
+    margin: 25px 0;
+    padding: 83px 37px;
+    gap: 34px;
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 16px;
+}
+
+.subtitle {
+    font-weight: normal;
+}
+
+@media ( max-width: 1000px ) {
+    .signupForm {
+        justify-content: center;
+    }
+
+    .container {
+        text-align: center;
+        align-items: center;
+    }
+}

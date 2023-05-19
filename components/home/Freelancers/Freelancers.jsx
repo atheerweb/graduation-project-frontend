@@ -1,6 +1,12 @@
-import { Box, Typography, Grid } from "@mui/material";
+// Components
 import Cards from "./components/Cards";
+// MUI Components
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Grid from "@mui/material/Grid";
+// Hooks
 import { useSelector } from "react-redux";
+// CSS Modules
 import styles from "@/styles/modules/home/freelancers.module.css";
 
 const Freelancers = () => {

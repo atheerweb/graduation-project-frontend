@@ -1,5 +1,9 @@
-import { Box, Typography } from "@mui/material";
+// MUI Components
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+// Hooks
 import { useTheme } from "@mui/material/styles";
+// CSS Modules
 import styles from "@/styles/modules/common/tribute.module.css";
 
 const Tribute = (props) => {

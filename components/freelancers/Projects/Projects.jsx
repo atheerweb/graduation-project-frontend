@@ -1,7 +1,11 @@
-import { Grid } from "@mui/material";
+// Components
 import Cards from "./components/Cards";
-import styles from "@/styles/modules/freelancers/data.module.css";
+// MUI Components
+import Grid from "@mui/material/Grid";
+// Hooks
 import { useSelector } from "react-redux";
+// CSS Module
+import styles from "@/styles/modules/freelancers/data.module.css";
 
 const Projects = () => {
     const cardsContent = useSelector(state => state.constants.value.freelancersProjectsCards);

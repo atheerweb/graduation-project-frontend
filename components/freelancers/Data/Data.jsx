@@ -1,8 +1,14 @@
+// Components
 import About from "../About/About";
 import Projects from "../Projects/Projects";
 import Reviews from "../Reviews/Reviews";
-import { Box, Tabs, Tab } from "@mui/material";
+// MUI Components
+import Box from "@mui/material/Box";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+// Hooks
 import { useState } from "react";
+// CSS Modules
 import styles from "@/styles/modules/freelancers/data.module.css";
 
 const Data = () => {

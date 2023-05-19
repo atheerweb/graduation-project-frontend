@@ -1,0 +1,30 @@
+.grid {
+    background-color: rgb(250, 250, 250);
+    min-height: 100vh;
+    width: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.form {
+    min-height: 500px;
+    width: 475px;
+    border: solid 1.12px rgb(224, 224, 224);
+    border-radius: 30px;
+    padding: 83px 37px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.formControls {
+    width: 100%;
+}
+
+.footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

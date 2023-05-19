@@ -1,5 +1,12 @@
-import { Card, CardActionArea, CardMedia, CardContent, Typography } from "@mui/material";
+// MUI Components
+import Card from "@mui/material/Card";
+import CardActionArea from "@mui/material/CardActionArea";
+import CardMedia from "@mui/material/CardMedia";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
+// Hooks
 import { useTheme } from "@mui/material/styles";
+// CSS Modules
 import styles from "@/styles/modules/home/freelancers.module.css";
 
 const Cards = (props) => {

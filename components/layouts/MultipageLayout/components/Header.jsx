@@ -1,13 +1,23 @@
+// Components
 import Menu from "./Menu";
-import { Box, Stack, Button, TextField, InputAdornment, Link } from "@mui/material";
+// MUI Components
+import Box from "@mui/material/Box";
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import InputAdornment from "@mui/material/InputAdornment";
+import Link from "@mui/material/Link";
+import SearchIcon from '@mui/icons-material/Search';
+import MenuIcon from '@mui/icons-material/Menu';
+// Next Components
 import Image from "next/image";
+// Hooks
 import { useState } from "react";
 import { useTheme } from "@mui/material/styles";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import useMediaQuery from '@mui/material/useMediaQuery';
-import SearchIcon from '@mui/icons-material/Search';
-import MenuIcon from '@mui/icons-material/Menu';
+// CSS Modules
 import styles from '@/styles/modules/layouts/MultipageLayout/layout.module.css';
 
 const Header = () => {
@@ -26,8 +36,12 @@ const Header = () => {
         <Box className={styles.mainNav} sx={{backgroundColor: theme.palette.accent.light, boxShadow: `0 0 5px ${theme.palette.accent.primary}`}}>
             <MenuIcon sx={{color: theme.palette.primary.main, display: !media && "none"}} onClick={handleMenuClick} />
             <Stack direction="row" spacing="20px" display={media && "none"}>
-                <Button variant="contained" sx={{color: theme.palette.accent.light}}>دخول</Button>
-                <Button variant="outlined" sx={{borderColor: theme.palette.accent.secondary}}>إنشاء حساب</Button>
+                <Link href="/signin">
+                    <Button variant="contained" sx={{color: theme.palette.accent.light}}>دخول</Button>
+                </Link>
+                <Link href="/signup">
+                    <Button variant="outlined" sx={{borderColor: theme.palette.accent.secondary}}>إنشاء حساب</Button>
+                </Link>
             </Stack>
             <TextField 
                 size="small"
