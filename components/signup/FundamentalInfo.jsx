@@ -15,7 +15,7 @@ import Link from "next/link";
 // Framer
 import { motion } from "framer-motion";
 // Hooks
-import { useState, useEffect } from "react";
+import { useState, useLayoutEffect } from "react";
 import { useTheme } from "@mui/material/styles";
 // CSS Modules
 import styles from "@/styles/modules/signup/fundamentalInfo.module.css";
@@ -29,7 +29,7 @@ const FundamentalInfo = (props) => {
         unmount: { opacity: 0, x: "-10%", transition: { type: "spring", duration: 0.5 }}
     }
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         setMount(previous => !previous);
     }, []);
 

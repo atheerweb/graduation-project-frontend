@@ -15,7 +15,7 @@ import Typography from "@mui/material/Typography";
 import { motion } from "framer-motion";
 // Hooks
 import { useTheme } from "@mui/material/styles";
-import { useState, useEffect } from "react";
+import { useState, useLayoutEffect } from "react";
 // CSS Modules
 import styles from "@/styles/modules/signup/detailedInfo.module.css";
 
@@ -31,7 +31,7 @@ const DetailedInfo = (props) => {
         unmount: { opacity: 0, x: "10%", transition: { type: "spring", duration: 0.5 }}
     }
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         setMount(previous => !previous);
     }, []);
 
@@ -113,7 +113,7 @@ const DetailedInfo = (props) => {
                     </FormHelperText>
                 </FormControl>
                 <FormControl className={styles.stableGridItems}>
-                    <OutlinedInput placeholder={"العنوان"} type={"text"} {...props.register("address", { required: "العنواو مطلوب", minLength: { value: 10, message: "المزيد من التفصيل" } })} /> 
+                    <OutlinedInput placeholder={"العنوان"} type={"text"} {...props.register("address", { required: "العنوان مطلوب", minLength: { value: 10, message: "المزيد من التفصيل" } })} /> 
                     <FormHelperText sx={{color: "red"}}>
                         {props.errors?.address?.message?.toString()}
                     </FormHelperText>
