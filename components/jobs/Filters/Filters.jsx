@@ -15,13 +15,11 @@ import MenuItem from "@mui/material/MenuItem";
 import { filterData } from "@/redux/slices/filtersSlice";
 // Hooks
 import { useState } from "react";
-import { useDispatch } from "react-redux";
 // CSS Modules
 import styles from "@/styles/modules/jobs/jobs.module.css";
 
-const Filters = () => {
+const Filters = (props) => {
     const [ categoryValue, setCategoryValue ] = useState([]);
-    const dispatch = useDispatch();
 
     const handleDelete = value => {
       const newValue = categoryValue.filter(category => category !== value);
@@ -35,7 +33,7 @@ const Filters = () => {
                 type={"text"}
                 placeholder={"بحث"}
                 inputProps={{style: { textAlign: "end" }}}
-                onChange={(event) => dispatch(filterData({title: event.target.value}))}
+                onChange={(event) => props.setFilters({title: event.target.value})}
             />
             <FormControl>
                 <InputLabel id={"التصنيف"}>

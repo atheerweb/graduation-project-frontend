@@ -8,12 +8,14 @@ import { useSelector } from "react-redux";
 import styles from "@/styles/modules/jobs/jobs.module.css";
 
 
-const Main = () => {
-    const cards = useSelector(state => state.filters.value.jobsCards.filteredCards);
+const Main = (props) => {
+    const filteredCards = useSelector(state => state.constants.value.jobsCards).filter(card => (
+        card.title.toLowerCase().includes(props.filters.title.toLowerCase())
+    ));
     return (
         <Grid className={styles.mainGrid}>
             {
-                cards.map((card, index) => (
+                filteredCards.map((card, index) => (
                     <Cards key={index} card={card} />
                 ))
             }
