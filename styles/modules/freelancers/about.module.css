@@ -1,0 +1,22 @@
+.about {
+    padding: 25px 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.containers {
+    width: 100%;
+    border: solid 1px silver;
+    border-radius: 5px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+@media ( max-width: 750px ) {
+    .about {
+        padding: 25px;
+    }
+}

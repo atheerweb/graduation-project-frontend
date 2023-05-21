@@ -56,7 +56,8 @@ const Filters = (props) => {
                               onMouseDown={(event) => event.stopPropagation()}
                             />
                           }
-                          onDelete={() => handleDelete(value)} />
+                          onDelete={() => handleDelete(value)}
+                        />
                       ))}
                     </Box>
                 )}

@@ -8,11 +8,13 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 // Hooks
 import { useState } from "react";
+import useMediaQuery from '@mui/material/useMediaQuery';
 // CSS Modules
 import styles from "@/styles/modules/freelancers/data.module.css";
 // 
 const Data = () => {
     const [activeTab, setActiveTab] = useState(0);
+    const media = useMediaQuery("(max-width: 750px)");
 
     const handleTabClick = (event) => {
         setActiveTab(Number(event.target.id));
@@ -28,8 +30,8 @@ const Data = () => {
 
     return (
         <>
-            <Box className={styles.freelancerDataTabs} sx={{ borderColor: 'divider' }}>
-              <Tabs value={activeTab}>
+            <Box className={styles.freelancerDataTabs}>
+              <Tabs value={activeTab} sx={{mx: media ? "25px" : "120px"}}>
                 <Tab id={0} onClick={handleTabClick} label="عن مستقل" />
                 <Tab id={1} onClick={handleTabClick} label="معرض الأعمال" />
                 <Tab id={2} onClick={handleTabClick} label="التقييمات" />

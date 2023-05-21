@@ -1,0 +1,19 @@
+.projectsGrid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 350px));
+    justify-content: center;
+    gap: 45px;
+    padding: 20px 120px;
+}
+
+.projectsCards {
+    cursor: pointer;
+}
+
+.projectsCardsHeader {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
