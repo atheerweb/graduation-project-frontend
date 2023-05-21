@@ -17,7 +17,7 @@ import { useState } from "react";
 import { useTheme } from "@mui/material/styles";
 // CSS Modules
 import styles from "@/styles/modules/signup/fundamentalInfo.module.css";
-
+// 
 const FundamentalInfo = (props) => {
     const theme = useTheme();
     const [ showPassword, setShowPassword ] = useState([false, false]);
@@ -34,7 +34,6 @@ const FundamentalInfo = (props) => {
                         variant={"outlined"}
                         type={"text"}
                         placeholder={"الاسم الأول"}
-                        inputProps={{style: { textAlign: "end" }}}
                         {...props.register("firstname", { required: "الاسم مطلوب" })}
                     />
                     <FormHelperText sx={{color: "red"}}>
@@ -46,7 +45,6 @@ const FundamentalInfo = (props) => {
                        variant={"outlined"}
                        type={"text"}
                        placeholder={"الاسم الأخير"}
-                       inputProps={{style: { textAlign: "end" }}}
                        {...props.register("lastname", { required: "الاسم مطلوب" })}
 
                     />
@@ -59,7 +57,6 @@ const FundamentalInfo = (props) => {
                         variant={"outlined"}
                         type={"email"}
                         placeholder={"البريد الإلكترونى"}
-                        inputProps={{style: { textAlign: "end" }}}
                         {...props.register("email", { required: "البريد الالكترونى مطلوب" })}
                     />
                     <FormHelperText sx={{color: "red"}}>
@@ -71,14 +68,13 @@ const FundamentalInfo = (props) => {
                         variant={"outlined"}
                         placeholder={"كلمة المرور"}
                         type={showPassword[0] ? "text" : "password"}
-                        inputProps={{style: { textAlign: "end" }}}
                         {...props.register("password", { required: "كلمة المرور مطلوبة", minLength: { value: 12, message: "12 على الأقل" }})}
-                        startAdornment={
-                            <InputAdornment position="start">
+                        endAdornment={
+                            <InputAdornment position="end">
                                 <IconButton
                                   aria-label="toggle password visibility"
                                   onClick={() => handleShowPasswordClick(0)}
-                                  edge="start"
+                                  edge="end"
                                 >
                                     {
                                         showPassword[0] ? <Visibility /> : <VisibilityOff />
@@ -96,14 +92,13 @@ const FundamentalInfo = (props) => {
                         variant={"outlined"}
                         placeholder={"تأكيد كلمة المرور"}
                         type={showPassword[1] ? "text" : "password"}
-                        inputProps={{style: { textAlign: "end" }}}
                         {...props.register("matchPassword", { required: true, validate: (value) => { if (props.watch("password") !== value) return "الكلمتان مختلفتان" } })}
-                        startAdornment={
-                            <InputAdornment position="start">
+                        endAdornment={
+                            <InputAdornment position="end">
                                 <IconButton
                                   aria-label="toggle password visibility"
                                   onClick={() => handleShowPasswordClick(1)}
-                                  edge="start"
+                                  edge="end"
                                 >
                                     {
                                         showPassword[1] ? <Visibility /> : <VisibilityOff />
@@ -118,14 +113,14 @@ const FundamentalInfo = (props) => {
                 </FormControl>
             </Grid>
             <Box className={styles.footer}>
-                <Button type={"submit"} sx={{backgroundColor: theme.palette.secondary.main, color: theme.palette.accent.light, fontWeight: "bold", "&:hover": {color: theme.palette.secondary.main}}}>
-                    التالى
-                </Button>
                 <Link href={"/signin"} style={{textDecoration: "none"}}>
                     <Typography sx={{color: theme.palette.secondary.main, fontWeight: "bold"}}>
                         سجل دخولك
                     </Typography>
                 </Link>
+                <Button type={"submit"} sx={{backgroundColor: theme.palette.secondary.main, color: theme.palette.accent.light, fontWeight: "bold", "&:hover": {color: theme.palette.secondary.main}}}>
+                    التالى
+                </Button>
             </Box>
         </Box>
     )

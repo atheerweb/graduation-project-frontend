@@ -11,8 +11,6 @@ import Chip from "@mui/material/Chip";
 import InputLabel from "@mui/material/InputLabel";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
-// Reducers
-import { filterData } from "@/redux/slices/filtersSlice";
 // Hooks
 import { useState } from "react";
 // CSS Modules
@@ -32,7 +30,6 @@ const Filters = (props) => {
                 variant={"outlined"}
                 type={"text"}
                 placeholder={"بحث"}
-                inputProps={{style: { textAlign: "end" }}}
                 onChange={(event) => props.setFilters({title: event.target.value})}
             />
             <FormControl>
@@ -50,10 +47,10 @@ const Filters = (props) => {
                     <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
                       {selected.map((value) => (
                         <Chip 
+                          sx={{px: 1.5}}
                           key={value}
                           label={value}
                           color="secondary"
-                          clickable
                           deleteIcon={
                             <Cancel
                               onMouseDown={(event) => event.stopPropagation()}
@@ -73,44 +70,43 @@ const Filters = (props) => {
                 variant={"outlined"}
                 type={"text"}
                 placeholder={"كلمات مفتاحية"}
-                inputProps={{style: { textAlign: "end" }}}
             />
             <FormControl className={styles.checkboxes} component="fieldset" variant="standard">
-                <FormLabel className={styles.filterLabels} component="legend">
+                <FormLabel component="legend">
                     مدة التسليم
                 </FormLabel>
                 <FormGroup className={styles.checkboxContainer}>
                   <FormControlLabel
-                    className={styles.filtersCheckboxes}
-                    control={
-                      <Checkbox name="أقل من اسبوع" />
-                    }
+                    sx={{m: 0}}
                     label="أقل من اسبوع"
+                    control={
+                      <Checkbox name="أقل من اسبوع" sx={{pr: 0}} />
+                    }
                   />
                   <FormControlLabel
-                    className={styles.filtersCheckboxes}
-                    control={
-                      <Checkbox name="من 1 إلي 3 اسابيع" />
-                    }
+                    sx={{m: 0}}
                     label="من 1 إلي 3 اسابيع"
+                    control={
+                      <Checkbox name="من 1 إلي 3 اسابيع" sx={{pr: 0}} />
+                    }
                   />
                   <FormControlLabel
-                    className={styles.filtersCheckboxes}
-                    control={
-                      <Checkbox name="من 3 اسابيع إلي شهر" />
-                    }
+                    sx={{m: 0}}
                     label="من 3 اسابيع إلي شهر"
+                    control={
+                      <Checkbox name="من 3 اسابيع إلي شهر" sx={{pr: 0}} />
+                    }
                   />
                   <FormControlLabel
-                    className={styles.filtersCheckboxes}
-                    control={
-                      <Checkbox name="أكثر من شهر" />
-                    }
+                    sx={{m: 0}}
                     label="أكثر من شهر"
+                    control={
+                      <Checkbox name="أكثر من شهر" sx={{pr: 0}} />
+                    }
                   />
                 </FormGroup>
             </FormControl>
-            <FormLabel className={styles.filterLabels}>
+            <FormLabel>
                 الميزانية
             </FormLabel>
             <Box className={styles.fromToContainer}>
@@ -119,14 +115,12 @@ const Filters = (props) => {
                     variant={"outlined"}
                     type={"tel"}
                     placeholder={"من"}
-                    inputProps={{style: { textAlign: "end" }}}
                 />
                 <OutlinedInput
                     className={styles.fromToInputs} 
                     variant={"outlined"}
                     type={"tel"}
                     placeholder={"إلى"}
-                    inputProps={{style: { textAlign: "end" }}}
                 />
             </Box>
         </Box>

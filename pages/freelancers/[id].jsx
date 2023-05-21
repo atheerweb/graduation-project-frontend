@@ -1,7 +1,7 @@
 import Summary from "@/components/freelancers/Summary/Summary";
 import Data from "@/components/freelancers/Data/Data";
 
-const freelancer = () => {
+const Freelancer = () => {
     return (
         <>
             <Summary />
@@ -10,4 +10,4 @@ const freelancer = () => {
     )
 }
 
-export default freelancer;
+export default Freelancer;

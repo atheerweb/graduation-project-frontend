@@ -18,8 +18,13 @@ const Footer = () => {
     return (
         <Box className={styles.footer}>
             <Image src="/images/footer_logo.png" alt="علمنى" height={85} width={130} />
+            <Stack direction="row" gap="25px">
+                {
+                    footerIcons(theme.palette.secondary.main)
+                }
+            </Stack>
             <Box className={styles.footerContent}>
-                <Stack className={styles.footerLinksStack} direction="row" spacing="23px">
+                <Stack className={styles.footerLinksStack} direction="row" columnGap="25px">
                     {
                         footerLinks.map((link, index) => (
                             <Link key={index} href={link.href} className={styles.footerLinks}>
@@ -32,11 +37,7 @@ const Footer = () => {
                     أبجد هوز حطي كلمن سعفص قرشت ثخذ ضظغ أبجد هوز حطي كلمن سعفص قرشت ثخذ ضظغ أبجد هوز حطي كلمن سعفص قرشت ثخذ ضظغ
                 </Typography>
             </Box>
-            <Stack direction="row" spacing="25px">
-                {
-                    footerIcons(theme.palette.secondary.main)
-                }
-            </Stack>
+            
         </Box>
     )
 }

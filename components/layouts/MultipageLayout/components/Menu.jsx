@@ -2,7 +2,8 @@
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
+import OutlinedInput from "@mui/material/OutlinedInput";
+import IconButton from "@mui/material/IconButton";
 import Divider from "@mui/material/Divider";
 import InputAdornment from "@mui/material/InputAdornment";
 import Link from "@mui/material/Link";
@@ -23,20 +24,27 @@ const Menu = (props) => {
 
     return (
         <Box className={styles.menuNav} sx={{backgroundColor: theme.palette.accent.light, display: !media ? "none" : props.display}}>
-            <TextField 
+            <OutlinedInput
                 className={styles.menuNavTextField}
-                size="small"
+                variant="outlined"
                 placeholder="ابحث عن مستقلين"
-                InputProps={{ 
-                    startAdornment: (
-                        <InputAdornment position="start">
+                dir="ltr"
+                inputProps={{style: { textAlign: "end" }}}
+                sx={{display: !media && "none"}}
+                startAdornment={
+                    <InputAdornment position="start">
+                        <IconButton
+                          aria-label="toggle password visibility"
+                          onClick={() => handleShowPasswordClick(0)}
+                          edge="start"
+                        >
                             <SearchIcon color="primary" />
-                        </InputAdornment>
-                    ),
-                }}
+                        </IconButton>
+                    </InputAdornment>
+                }
             />
-            <Divider sx={{backgroundColor: "primary.main"}} />
-            <Stack direction="column-reverse" spacing="10px">
+            <Divider />
+            <Stack direction="column" spacing="10px">
                 {
                     navLinks.map((link, index) => (
                         <Link
@@ -55,14 +63,14 @@ const Menu = (props) => {
             </Stack>
             <Divider />
             <Stack spacing="20px" width="100%">
-                <Link href="/signin">
-                    <Button variant="contained" sx={{width: "100%", color: theme.palette.accent.light}}>
-                        دخول
+                <Link href="/signup">
+                    <Button variant="outlined" color="secondary" sx={{width: "100%", borderColor: theme.palette.accent.secondary}}>
+                        إنشاء حساب
                     </Button>
                 </Link>
-                <Link href="/signup">
-                    <Button variant="outlined" sx={{width: "100%", borderColor: theme.palette.accent.secondary}}>
-                        إنشاء حساب
+                <Link href="/signin">
+                    <Button variant="contained" color="secondary" sx={{width: "100%", borderColor: theme.palette.accent.secondary}}>
+                        تسجيل دخول
                     </Button>
                 </Link>
             </Stack>

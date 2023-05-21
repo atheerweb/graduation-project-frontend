@@ -17,49 +17,20 @@ import styles from "@/styles/modules/signup/detailedInfo.module.css";
 
 const DetailedInfo = (props) => {
     const theme = useTheme();
-    const [ monthValue, setMonthValue ] = useState("");
     const [ genderValue, setGenderValue ] = useState("");
     const [ countryValue, setCountryValue ] = useState("");
     const [ cityValue, setCityValue ] = useState("");
 
     return (
-        <Box>
+        <Box sx={{width: "100%"}}>
             <Grid className={styles.grid}>
                 <FormControl>
-                    <OutlinedInput placeholder={"السنة"} type={"text"} {...props.register("year", { required: "السنة مطلوبة", minLength: { value: 4, message: "يجب 4 أرقام" }, maxLength: { value: 4, message: "يجب 4 أرقام" }, validate: (value) => { if (Number(value) > new Date().getFullYear()) return "لم تأتى بعد" } })} /> 
+                    <OutlinedInput placeholder="التاريخ" type={"date"} {...props.register("date", { required: "التاريخ مطلوبة"})} /> 
                     <FormHelperText sx={{color: "red"}}>
                         {props.errors?.year?.message?.toString()}
                     </FormHelperText>
                 </FormControl>
                 <FormControl>
-                    <InputLabel id={"month"}>
-                        الشهر
-                    </InputLabel>
-                    <Select labelId={"month"} {...props.register("month", { required: "الشهر مطلوب" })} onChange={(event) => setMonthValue(event.target.value)} value={monthValue}>
-                        <MenuItem value={"Jan"}>Jan</MenuItem>
-                        <MenuItem value={"Feb"}>Feb</MenuItem>
-                        <MenuItem value={"Mar"}>Mar</MenuItem>
-                        <MenuItem value={"Apr"}>Apr</MenuItem>
-                        <MenuItem value={"May"}>May</MenuItem>
-                        <MenuItem value={"Jun"}>Jun</MenuItem>
-                        <MenuItem value={"Jul"}>Jul</MenuItem>
-                        <MenuItem value={"Aug"}>Aug</MenuItem>
-                        <MenuItem value={"Sep"}>Sep</MenuItem>
-                        <MenuItem value={"Oct"}>Oct</MenuItem>
-                        <MenuItem value={"Nov"}>Nov</MenuItem>
-                        <MenuItem value={"Dec"}>Dec</MenuItem>
-                    </Select>
-                    <FormHelperText sx={{color: "red"}}>
-                        {props.errors?.month?.message?.toString()}
-                    </FormHelperText>
-                </FormControl>
-                <FormControl>
-                    <OutlinedInput placeholder={"اليوم"} type={"text"} {...props.register("day", { required: "اليوم مطلوب", maxLength: { value: 2, message: "أقل من 31" }, validate: (value) => { if (Number(value) > 31) return "أقل من 31" } })} />
-                    <FormHelperText sx={{color: "red"}}>
-                        {props.errors?.day?.message?.toString()}
-                    </FormHelperText>
-                </FormControl>
-                <FormControl className={styles.stableGridItems}>
                     <InputLabel id={"gender"}>
                         الجنس
                     </InputLabel>
@@ -71,7 +42,7 @@ const DetailedInfo = (props) => {
                         {props.errors?.gender?.message?.toString()}
                     </FormHelperText>
                 </FormControl>
-                <FormControl className={styles.stableGridItems}>
+                <FormControl>
                     <InputLabel id={"country"}>
                         الدولة
                     </InputLabel>
@@ -83,7 +54,7 @@ const DetailedInfo = (props) => {
                         {props.errors?.country?.message?.toString()}
                     </FormHelperText>
                 </FormControl>
-                <FormControl className={styles.stableGridItems}>
+                <FormControl>
                     <InputLabel id={"city"}>
                         المحافظة
                     </InputLabel>
@@ -95,7 +66,7 @@ const DetailedInfo = (props) => {
                         {props.errors?.city?.message?.toString()}
                     </FormHelperText>
                 </FormControl>
-                <FormControl className={styles.stableGridItems}>
+                <FormControl>
                     <OutlinedInput placeholder={"العنوان"} type={"text"} {...props.register("address", { required: "العنوان مطلوب", minLength: { value: 10, message: "المزيد من التفصيل" } })} /> 
                     <FormHelperText sx={{color: "red"}}>
                         {props.errors?.address?.message?.toString()}
@@ -103,12 +74,12 @@ const DetailedInfo = (props) => {
                 </FormControl>
             </Grid>
             <Box className={styles.footer}>
-                <Button type={"submit"} sx={{backgroundColor: theme.palette.secondary.main, color: theme.palette.accent.light, fontWeight: "bold", "&:hover": {color: theme.palette.secondary.main}}}>
-                    تسجيل
-                </Button>
                 <Typography onClick={() => props.setActiveStep(previous => !previous)} sx={{color: theme.palette.secondary.main, fontWeight: "bold", cursor: "pointer"}}>
                     رجوع
                 </Typography>
+                <Button type={"submit"} sx={{backgroundColor: theme.palette.secondary.main, color: theme.palette.accent.light, fontWeight: "bold", "&:hover": {color: theme.palette.secondary.main}}}>
+                    تسجيل
+                </Button>
             </Box>
         </Box>
     )

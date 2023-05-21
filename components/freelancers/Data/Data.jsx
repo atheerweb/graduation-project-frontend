@@ -10,9 +10,9 @@ import Tab from "@mui/material/Tab";
 import { useState } from "react";
 // CSS Modules
 import styles from "@/styles/modules/freelancers/data.module.css";
-
+// 
 const Data = () => {
-    const [activeTab, setActiveTab] = useState(2);
+    const [activeTab, setActiveTab] = useState(0);
 
     const handleTabClick = (event) => {
         setActiveTab(Number(event.target.id));
@@ -20,9 +20,9 @@ const Data = () => {
 
     const handleTabPanels = () => {
         switch (activeTab) {
-            case 0: return <Reviews />
+            case 0: return <About />
             case 1: return <Projects />
-            case 2: return <About />
+            case 2: return <Reviews />
         }
     }
 
@@ -30,9 +30,9 @@ const Data = () => {
         <>
             <Box className={styles.freelancerDataTabs} sx={{ borderColor: 'divider' }}>
               <Tabs value={activeTab}>
-                <Tab id={0} onClick={handleTabClick} label="التقييمات" />
+                <Tab id={0} onClick={handleTabClick} label="عن مستقل" />
                 <Tab id={1} onClick={handleTabClick} label="معرض الأعمال" />
-                <Tab id={2} onClick={handleTabClick} label="عن مستقل" />
+                <Tab id={2} onClick={handleTabClick} label="التقييمات" />
               </Tabs>
             </Box>
             <Box className={styles.freelancerDataContainer}>

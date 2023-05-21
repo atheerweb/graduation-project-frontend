@@ -16,12 +16,12 @@ const Summary = () => {
         <Box className={styles.summary}>
             <Image height={123} width={123} src="/images/freelancers_summary_icon.png" alt="Freelancer" />
             <Typography variant="h2">الاسم الأول</Typography>
-            <Stack className={styles.summaryMainStack}>
+            <Stack direction="row" className={styles.summaryMainStack}>
                 {
                     summaryStacks.map((stack, index) => (
-                        <Stack key={index} className={styles.summarySecondaryStacks}>
-                            <Typography>{stack.title}</Typography>
+                        <Stack key={index} direction="row" className={styles.summarySecondaryStacks}>
                             {stack.icon}
+                            <Typography>{stack.title}</Typography>
                         </Stack>
                     ))
                 }

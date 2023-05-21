@@ -15,7 +15,7 @@ const Cards = (props) => {
                 title={
                     <Box className={styles.projectsCardsHeader}>
                         <Typography>تصميم</Typography>
-                        <Typography variant="h2">{props.content.title}</Typography>
+                        <Typography variant="h3">{props.content.title}</Typography>
                         <Typography sx={{opacity: 0.6}}>{props.content.date}</Typography>
                     </Box>   
                 }

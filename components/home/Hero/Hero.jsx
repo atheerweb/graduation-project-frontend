@@ -20,9 +20,9 @@ const Hero = () => {
         <Box className={styles.hero}>
             <Typography variant="h1" sx={{maxWidth: "642px", color: theme.palette.accent.light, textAlign: media ? "center" : "right"}}>أبحث عن مستقلين مميزين في الوطن العربي</Typography>
             <Typography variant="h3" className={styles.headerThree} textAlign={media ? "center" : "right"}>منصة علمني للمستقلين هي فرع من منصة علمني تمتاز بالتركيز علي توصيل الكوادر بأصحاب الأعمال</Typography>
-            <Box className={styles.categoriesContainer} alignItems={media ? "center" : "flex-end"}>
+            <Box className={styles.categoriesContainer} alignItems={media ? "center" : "flex-start"}>
                 <Typography className={styles.categoriesLabel}>أكثر التخصصات طلباً</Typography>
-                <Stack className={styles.heroButtonsStack} direction="row" spacing="11px" justifyContent={media ? "center" : "flex-end"}>
+                <Stack className={styles.heroButtonsStack} direction="row" gap="11px" justifyContent={media ? "center" : "flex-start"}>
                     {
                         heroButtons.map((button, index) => (
                             <Button 

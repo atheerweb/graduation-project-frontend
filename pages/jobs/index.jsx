@@ -9,8 +9,7 @@ import { useState } from "react";
 // CSS Modules
 import styles from "@/styles/modules/jobs/jobs.module.css";
 
-
-const freelancers = () => {
+const Jobs = () => {
     const [ filters, setFilters ] = useState({title: ""});
     return (
         <Box className={styles.jobs}>
@@ -25,4 +24,4 @@ const freelancers = () => {
     )
 }
 
-export default freelancers;
+export default Jobs;

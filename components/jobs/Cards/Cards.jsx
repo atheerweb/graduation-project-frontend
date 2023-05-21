@@ -1,3 +1,5 @@
+// Next Components
+import Link from "next/link";
 // MUI Components
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
@@ -13,14 +15,19 @@ const Cards = (props) => {
     return (
         <Card sx={{ maxWidth: 345, height: "fit-content" }}>
             <CardHeader
+                sx={{px: 0}}
                 avatar={
                     <Avatar aria-label="recipe">
                         {props.card.avatar}
                     </Avatar>
                 }
-                title={props.card.title}
+                title={
+                    <Typography sx={{mr: 1.5}}>
+                        {props.card.title}
+                    </Typography>
+                }
                 subheader={
-                    <Box sx={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
+                    <Box sx={{display: "flex", justifyContent: "space-between", alignItems: "center", px: 1.5}}>
                         <Typography>
                             {props.card.freelancer}
                         </Typography>
@@ -36,12 +43,14 @@ const Cards = (props) => {
                 </Typography>
             </CardContent>
             <CardActions sx={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
+                {/* <Link href={`/jobs/${props.card.id}`}> */}
+                    <Typography color="primary" sx={{cursor: "pointer"}}>
+                        ضف عرضك
+                    </Typography>
+                {/* </Link> */}
                 <IconButton aria-label="add to favorites">
                     <Favorite />
                 </IconButton>
-                <Typography color="primary" sx={{cursor: "pointer"}}>
-                    ضف عرضك
-                </Typography>
             </CardActions>
       </Card>
     )

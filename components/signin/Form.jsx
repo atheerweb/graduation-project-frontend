@@ -46,7 +46,6 @@ const Form = () => {
                     variant={"outlined"}
                     type={"email"}
                     placeholder={"البريد الإلكترونى"}
-                    inputProps={{style: { textAlign: "end" }}}
                     {...register("email", { required: "البريد الالكترونى مطلوب" })}
                 />
                 <FormHelperText sx={{color: "red"}}>
@@ -58,14 +57,13 @@ const Form = () => {
                     variant={"outlined"}
                     placeholder={"كلمة المرور"}
                     type={showPassword ? "text" : "password"}
-                    inputProps={{style: { textAlign: "end" }}}
                     {...register("password", { required: "كلمة المرور مطلوبة", minLength: { value: 12, message: "12 على الأقل" }})}
-                    startAdornment={
-                        <InputAdornment position="start">
+                    endAdornment={
+                        <InputAdornment position="end">
                             <IconButton
                               aria-label="toggle password visibility"
                               onClick={handleShowPasswordClick}
-                              edge="start"
+                              edge="end"
                             >
                                 {
                                     showPassword ? <Visibility /> : <VisibilityOff />
@@ -79,14 +77,14 @@ const Form = () => {
                 </FormHelperText>
             </FormControl>
             <Box className={styles.footer}>
-                <Button type={"submit"} sx={{backgroundColor: theme.palette.secondary.main, color: theme.palette.accent.light, fontWeight: "bold", "&:hover": {color: theme.palette.secondary.main}}}>
-                    التالى
-                </Button>
                 <Link href={"/signup"} style={{textDecoration: "none"}}>
                     <Typography sx={{color: theme.palette.secondary.main, fontWeight: "bold"}}>
                         إنشاء حساب
                     </Typography>
                 </Link>
+                <Button type={"submit"} sx={{backgroundColor: theme.palette.secondary.main, color: theme.palette.accent.light, fontWeight: "bold", "&:hover": {color: theme.palette.secondary.main}}}>
+                    التالى
+                </Button>
             </Box>
         </form>
     )

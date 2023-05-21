@@ -22,7 +22,6 @@ const SignLayout = ({ handleSubmit, activeStep, setActiveStep, children }) => {
     return (
         <Grid className={styles.signupContainer}>
             <form className={styles.signupForm} onSubmit={handleSubmit(onSubmit)}>
-                <Image src={activeStep ? "/images/signup_two.png" : "/images/signup_one.png"} width={295.19} height={295.19} alt={"Signup"} style={{display: media ? "none" : "block"}} />
                 <Box className={styles.container}>
                     <Image src={"/images/signup_logo.png"} width={84} height={56} alt={"Logo"} />
                     <Typography className={styles.subtitle}>
@@ -30,6 +29,7 @@ const SignLayout = ({ handleSubmit, activeStep, setActiveStep, children }) => {
                     </Typography>
                     {children}
                 </Box>
+                <Image src={activeStep ? "/images/signup_two.png" : "/images/signup_one.png"} width={295.19} height={295.19} alt={"Signup"} style={{display: media ? "none" : "block"}} />
             </form>
         </Grid>
     )

@@ -4,9 +4,10 @@ import Menu from "./Menu";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
+import OutlinedInput from "@mui/material/OutlinedInput";
 import InputAdornment from "@mui/material/InputAdornment";
 import Link from "@mui/material/Link";
+import IconButton from "@mui/material/IconButton";
 import SearchIcon from '@mui/icons-material/Search';
 import MenuIcon from '@mui/icons-material/Menu';
 // Next Components
@@ -34,39 +35,9 @@ const Header = () => {
 
     return (
         <Box className={styles.mainNav} sx={{backgroundColor: theme.palette.accent.light, boxShadow: `0 0 5px ${theme.palette.accent.primary}`}}>
-            <MenuIcon sx={{color: theme.palette.primary.main, display: !media && "none"}} onClick={handleMenuClick} />
-            <Stack direction="row" spacing="20px" display={media && "none"}>
-                <Link href="/signin">
-                    <Button variant="contained" sx={{color: theme.palette.accent.light}}>دخول</Button>
-                </Link>
-                <Link href="/signup">
-                    <Button variant="outlined" sx={{borderColor: theme.palette.accent.secondary}}>إنشاء حساب</Button>
-                </Link>
-            </Stack>
-            <TextField 
-                size="small"
-                placeholder="ابحث عن مستقلين"
-                className={styles.mainNavTextField}
-                InputProps={{ 
-                    startAdornment: (
-                        <InputAdornment position="start">
-                            <SearchIcon color="primary" />
-                        </InputAdornment>
-                    ),
-                }}
-                sx={{
-                        display: media && "none",
-                        "&::placeholder": {
-                            color: theme.palette.accent.primary,
-                        },
-                        "& .MuiOutlinedInput-root": {
-                            "& fieldset": {
-                                borderRadius: "26px",
-                            },
-                        },
-                    }}
-            />
-            <Stack direction="row" spacing="65px" display={media && "none"}>
+            <Menu display={display} />
+            <Image width={62} height={41} src="/images/header_logo.png" alt="علمنى" priority />
+            <Stack direction="row" gap="65px" display={media && "none"}>
                 {
                     navLinks.map((link, index) => (
                         <Link
@@ -83,8 +54,34 @@ const Header = () => {
                     ))
                 }
             </Stack>
-            <Image width={62} height={41} src="/images/header_logo.png" alt="علمنى" priority />
-            <Menu display={display} />
+            <OutlinedInput
+                className={styles.mainNavSearch}
+                variant="outlined"
+                placeholder="ابحث عن مستقلين"
+                dir="ltr"
+                inputProps={{style: { textAlign: "end" }}}
+                sx={{display: media && "none"}}
+                startAdornment={
+                    <InputAdornment position="start">
+                        <IconButton
+                          aria-label="toggle password visibility"
+                          onClick={() => handleShowPasswordClick(0)}
+                          edge="start"
+                        >
+                            <SearchIcon color="primary" />
+                        </IconButton>
+                    </InputAdornment>
+                }
+            />
+            <Stack direction="row" gap="20px" display={media && "none"}>
+                <Link href="/signup">
+                    <Button variant="outlined" color="secondary">إنشاء حساب</Button>
+                </Link>
+                <Link href="/signin">
+                    <Button variant="contained" color="secondary">تسجيل دخول</Button>
+                </Link>
+            </Stack>
+            <MenuIcon sx={{color: theme.palette.primary.main, cursor: "pointer", display: !media && "none"}} onClick={handleMenuClick} />
         </Box>
     )
 }
