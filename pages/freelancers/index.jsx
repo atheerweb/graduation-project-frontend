@@ -1,7 +1,7 @@
-const freelancers = () => {
+const Freelancers = () => {
     return (
         <></>
     )
 }
 
-export default freelancers;
+export default Freelancers;

@@ -1,0 +1,62 @@
+.jobs {
+    min-height: 100vh;
+    width: 100%;
+    padding: 45px 75px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.contentContainer {
+    width: 100%;
+    padding: 25px 0;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.filtersContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.checkboxes {
+    margin: 15px 0;
+}
+
+.checkboxContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.filterLabels {
+    width: 100%;
+    text-align: end;
+}
+
+.filtersCheckboxes {
+    width: 100%;
+    margin: 0;
+    flex-direction: row-reverse;
+}
+
+.fromToContainer {
+    width: 100%;
+    display: flex;
+    gap: 15px;
+}
+
+.fromToInputs {
+    width: 130px;
+}
+
+.mainGrid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 320px);
+    gap: 20px;
+    padding: 0 10px;
+    justify-content: space-around;
+}

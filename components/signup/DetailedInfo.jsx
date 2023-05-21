@@ -1,5 +1,3 @@
-// Next Components
-import Link from "next/link";
 // MUI Components
 import Grid from "@mui/material/Grid";
 import OutlinedInput from "@mui/material/OutlinedInput";
@@ -11,11 +9,9 @@ import MenuItem from "@mui/material/MenuItem";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-// Framer
-import { motion } from "framer-motion";
 // Hooks
 import { useTheme } from "@mui/material/styles";
-import { useState, useLayoutEffect } from "react";
+import { useState } from "react";
 // CSS Modules
 import styles from "@/styles/modules/signup/detailedInfo.module.css";
 
@@ -25,22 +21,9 @@ const DetailedInfo = (props) => {
     const [ genderValue, setGenderValue ] = useState("");
     const [ countryValue, setCountryValue ] = useState("");
     const [ cityValue, setCityValue ] = useState("");
-    const [ mount, setMount ] = useState(false);
-    const variant = {
-        mount: { opacity: 1, x: 0, transition: { type: "spring", duration: 0.5 }},
-        unmount: { opacity: 0, x: "10%", transition: { type: "spring", duration: 0.5 }}
-    }
-
-    useLayoutEffect(() => {
-        setMount(previous => !previous);
-    }, []);
-
-    const handleAnimation = () => {
-        props.setActiveStep(previous => !previous);
-    }
 
     return (
-        <Box component={motion.div} variants={variant} initial={"unmount"} animate={mount ? "unmount" : "mount"} >
+        <Box>
             <Grid className={styles.grid}>
                 <FormControl>
                     <OutlinedInput placeholder={"السنة"} type={"text"} {...props.register("year", { required: "السنة مطلوبة", minLength: { value: 4, message: "يجب 4 أرقام" }, maxLength: { value: 4, message: "يجب 4 أرقام" }, validate: (value) => { if (Number(value) > new Date().getFullYear()) return "لم تأتى بعد" } })} /> 
@@ -123,11 +106,9 @@ const DetailedInfo = (props) => {
                 <Button type={"submit"} sx={{backgroundColor: theme.palette.secondary.main, color: theme.palette.accent.light, fontWeight: "bold", "&:hover": {color: theme.palette.secondary.main}}}>
                     تسجيل
                 </Button>
-                <Link href={"#"} style={{textDecoration: "none"}}>
-                    <Typography onClick={handleAnimation} sx={{color: theme.palette.secondary.main, fontWeight: "bold"}}>
-                        رجوع
-                    </Typography>
-                </Link>
+                <Typography onClick={() => props.setActiveStep(previous => !previous)} sx={{color: theme.palette.secondary.main, fontWeight: "bold", cursor: "pointer"}}>
+                    رجوع
+                </Typography>
             </Box>
         </Box>
     )

@@ -12,10 +12,8 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import Button from "@mui/material/Button";
 // Next Components
 import Link from "next/link";
-// Framer
-import { motion } from "framer-motion";
 // Hooks
-import { useState, useLayoutEffect } from "react";
+import { useState } from "react";
 import { useTheme } from "@mui/material/styles";
 // CSS Modules
 import styles from "@/styles/modules/signup/fundamentalInfo.module.css";
@@ -23,22 +21,13 @@ import styles from "@/styles/modules/signup/fundamentalInfo.module.css";
 const FundamentalInfo = (props) => {
     const theme = useTheme();
     const [ showPassword, setShowPassword ] = useState([false, false]);
-    const [ mount, setMount ] = useState(false);
-    const variant = {
-        mount: { opacity: 1, x: 0, transition: { type: "spring", duration: 0.5 }},
-        unmount: { opacity: 0, x: "-10%", transition: { type: "spring", duration: 0.5 }}
-    }
-
-    useLayoutEffect(() => {
-        setMount(previous => !previous);
-    }, []);
 
     const handleShowPasswordClick = (index) => {
         index === 0 ? setShowPassword([!showPassword[0], showPassword[1]]) : setShowPassword([showPassword[0], !showPassword[1]]);
     }
 
     return (
-        <Box component={motion.div} variants={variant} initial={"unmount"} animate={mount ? "unmount" : "mount"}>
+        <Box>
             <Grid className={styles.grid}>
                 <FormControl>
                     <OutlinedInput 

@@ -16,12 +16,7 @@ const SignLayout = ({ handleSubmit, activeStep, setActiveStep, children }) => {
 
     const onSubmit = (values) => {
         console.log(values);
-        try {
-            activeStep ? router.push("/") : setActiveStep(previous => !previous);
-        }
-        catch(error) {
-            console.log(error);
-        }
+        activeStep ? router.push("/") : setActiveStep(previous => !previous);
     }
 
     return (

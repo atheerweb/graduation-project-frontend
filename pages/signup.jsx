@@ -14,8 +14,8 @@ const Signup = () => {
         <SignLayout handleSubmit={handleSubmit} activeStep={activeStep} setActiveStep={setActiveStep}>
             {
                 activeStep ? 
-                <DetailedInfo register={register} errors={errors} activeStep={activeStep} setActiveStep={setActiveStep} /> :
-                <FundamentalInfo register={register} errors={errors} watch={watch} activeStep={activeStep} setActiveStep={setActiveStep} />
+                <DetailedInfo register={register} errors={errors} setActiveStep={setActiveStep} /> :
+                <FundamentalInfo register={register} errors={errors} watch={watch} />
             }
         </SignLayout>
     )
