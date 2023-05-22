@@ -1,0 +1,10 @@
+.jobsDataTabs {
+    border-bottom: solid 1px;
+    display: flex;
+}
+
+.jobsDataContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

@@ -43,11 +43,11 @@ const Cards = (props) => {
                 </Typography>
             </CardContent>
             <CardActions sx={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
-                {/* <Link href={`/jobs/${props.card.id}`}> */}
+                <Link href={`/jobs/${props.card.id}`}>
                     <Typography color="primary" sx={{cursor: "pointer"}}>
                         ضف عرضك
                     </Typography>
-                {/* </Link> */}
+                </Link>
                 <IconButton aria-label="add to favorites">
                     <Favorite />
                 </IconButton>
