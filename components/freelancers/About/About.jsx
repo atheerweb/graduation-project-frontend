@@ -13,6 +13,7 @@ import styles from "@/styles/modules/freelancers/about.module.css";
 
 const About = () => {
     const chips = useSelector(state => state.constants.value.freelancersAboutChips);
+    
     return (
         <Box className={styles.about}>
             <Box className={styles.containers}>
