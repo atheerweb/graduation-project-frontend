@@ -46,7 +46,6 @@ const FundamentalInfo = (props) => {
                        type={"text"}
                        placeholder={"الاسم الأخير"}
                        {...props.register("lastname", { required: "الاسم مطلوب" })}
-
                     />
                     <FormHelperText sx={{color: "red"}} margin={"dense"}>
                        {props.errors?.lastname?.message?.toString()}

@@ -14,7 +14,7 @@ import styles from "@/styles/modules/freelancers/data.module.css";
 // 
 const Data = () => {
     const [activeTab, setActiveTab] = useState(0);
-    const media = useMediaQuery("(max-width: 750px)");
+    const media = useMediaQuery("(max-width: 800px)");
 
     const handleTabClick = (event) => {
         setActiveTab(Number(event.target.id));
