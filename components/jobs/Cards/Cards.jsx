@@ -1,3 +1,4 @@
+import Link from "next/link";
 // MUI Components
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
@@ -7,7 +8,6 @@ import CardHeader from "@mui/material/CardHeader";
 import CardContent from "@mui/material/CardContent";
 import Favorite from "@mui/icons-material/Favorite";
 import IconButton from "@mui/material/IconButton";
-import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 
 const Cards = (props) => {
@@ -42,7 +42,7 @@ const Cards = (props) => {
                 </Typography>
             </CardContent>
             <CardActions sx={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
-                <Link href={`/jobs/${props.card.id}`} sx={{textDecoration: "none"}}>
+                <Link href={`/jobs/${props.card.id}`} style={{textDecoration: "none"}}>
                     <Typography color="primary" sx={{cursor: "pointer", textDecoration: "none"}}>
                         ضف عرضك
                     </Typography>
