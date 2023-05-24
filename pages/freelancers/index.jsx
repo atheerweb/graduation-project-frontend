@@ -10,7 +10,7 @@ import { useState } from "react";
 import styles from "@/styles/modules/freelancers/freelancers.module.css";
 
 const Freelancers = () => {
-    const [ filters, setFilters ] = useState({title: ""});
+    const [ filters, setFilters ] = useState({title: "", ratings: 5});
     return (
         <Box className={styles.freelancers}>
             <Typography variant="h2">

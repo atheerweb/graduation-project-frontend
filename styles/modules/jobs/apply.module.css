@@ -50,7 +50,5 @@
 }
 
 .buttons {
-    width: 150px;
     justify-content: space-between;
-    gap: 1px;
 }

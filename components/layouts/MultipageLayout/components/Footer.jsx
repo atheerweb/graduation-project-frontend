@@ -27,7 +27,7 @@ const Footer = () => {
                 <Stack className={styles.footerLinksStack} direction="row" columnGap="25px">
                     {
                         footerLinks.map((link, index) => (
-                            <Link key={index} href={link.href} className={styles.footerLinks}>
+                            <Link key={index} href={link.href} sx={{textDecoration: "none", color: theme.palette.accent.primary}} className={styles.footerLinks}>
                                 {link.title}
                             </Link>
                         ))

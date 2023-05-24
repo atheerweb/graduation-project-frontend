@@ -10,16 +10,19 @@ import Rating from "@mui/material/Rating";
 import { useState } from "react";
 import { useTheme } from "@mui/material/styles";
 import { useForm } from "react-hook-form";
+import { useRouter } from "next/router";
 // CSS Modules
 import styles from "@/styles/modules/freelancers/reviews.module.css";
 
 const Reviews = () => {
     const { register, handleSubmit } = useForm();
+    const router = useRouter();
     const theme = useTheme();
-    const [rating, setRating] = useState(0);
+    const [rating, setRating] = useState(5);
 
     const onSubmit = (values) => {
-        console.log(values);
+        console.log({...values, rating: rating});
+        router.push("/signin");
     }
 
     return (

@@ -44,7 +44,8 @@ const Header = () => {
                             className={styles.navLinks}
                             sx={{
                                 color: link.href === router.pathname ? theme.palette.accent.dark : theme.palette.accent.primary,
-                                fontWeight: link.href === router.pathname && "bold"
+                                fontWeight: link.href === router.pathname && "bold",
+                                textDecoration: "none"
                             }}
                             key={index}
                             href={link.href}
@@ -59,8 +60,8 @@ const Header = () => {
                 variant="outlined"
                 placeholder="ابحث عن مستقلين"
                 dir="ltr"
-                inputProps={{style: { textAlign: "end" }}}
-                sx={{display: media && "none"}}
+                inputProps={{style: { textAlign: "end", borderRadius: "25px" }}}
+                sx={{display: media && "none", borderRadius: "25px"}}
                 startAdornment={
                     <InputAdornment position="start">
                         <IconButton

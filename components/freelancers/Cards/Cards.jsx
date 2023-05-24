@@ -40,7 +40,7 @@ const Cards = (props) => {
                 </Typography>
             </CardContent>
             <CardActions sx={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
-                <Link href={{pathname: `/freelancers/${props.card.id}`}}>
+                <Link href={{pathname: `/freelancers/${props.card.id}`}} style={{textDecoration: "none"}}>
                     <Typography color="primary" sx={{cursor: "pointer"}}>
                         وظفنى
                     </Typography>

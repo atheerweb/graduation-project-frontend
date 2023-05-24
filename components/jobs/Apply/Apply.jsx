@@ -14,15 +14,17 @@ import Typography from "@mui/material/Typography";
 // Hooks
 import { useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
+import { useRouter } from "next/router";
 // CSS Modules
 import styles from "@/styles/modules/jobs/apply.module.css";
 
 const Apply = () => {
+    const router = useRouter();
     const { register, handleSubmit, formState: { errors } } = useForm();
     const chips = useSelector(state => state.constants.value.freelancersAboutChips);
 
     const onSubmit = (values) => {
-        console.log(values); 
+        router.push("/signin")
     }
 
     return (
@@ -108,10 +110,10 @@ const Apply = () => {
                     </Box>
                 </Box>
                 <Box className={styles.buttonsContainer}>
-                    <Button type="submit" className={styles.buttons} sx={{color: "white"}} variant="contained" startIcon={<MailOutlineIcon sx={{color: "white"}} />}>
+                    <Button type="submit" className={styles.buttons} sx={{color: "white", gap: "20px", width: "150px"}} variant="contained" startIcon={<MailOutlineIcon sx={{color: "white"}} />}>
                         ضف عرضك
                     </Button>
-                    <Button className={styles.buttons} variant="outlined" startIcon={<FavoriteBorderOutlinedIcon />}>
+                    <Button onClick={() => router.push("/signin")} className={styles.buttons} sx={{gap: "10px", width: "150px"}} variant="outlined" startIcon={<FavoriteBorderOutlinedIcon />}>
                         ضف للمفضلة
                     </Button>
                 </Box>

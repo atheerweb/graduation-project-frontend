@@ -16,6 +16,8 @@ import styles from "@/styles/modules/freelancers/freelancers.module.css";
 
 const Filters = (props) => {
     const [ categoryValue, setCategoryValue ] = useState([]);
+    const [rating, setRating] = useState(5);
+    const [title, setTitle] = useState("");
 
     const handleDelete = value => {
       const newValue = categoryValue.filter(category => category !== value);
@@ -28,7 +30,7 @@ const Filters = (props) => {
                 variant={"outlined"}
                 type={"text"}
                 placeholder={"بحث"}
-                onChange={(event) => props.setFilters({title: event.target.value})}
+                onChange={(event) => {setTitle(event.target.value); props.setFilters({title: event.target.value, ratings: rating})}}
             />
             <FormControl>
                 <InputLabel id={"التصنيف"}>
@@ -72,7 +74,13 @@ const Filters = (props) => {
             />
             <Box sx={{mt: "15px"}}>
                 <Typography component="legend">التقييم</Typography>
-                <Rating name="read-only" value={2} readOnly />
+                <Rating
+                    value={rating}
+                    max={5}
+                    dir="ltr"
+                    name="unique-rating"
+                    onChange={(event, newValue) => {setRating(newValue); props.setFilters({title: title, ratings: event.target.value})}}
+                />
             </Box>
         </Box>
     )

@@ -9,9 +9,9 @@ import styles from "@/styles/modules/freelancers/freelancers.module.css";
 
 
 const Main = (props) => {
-    const filteredCards = useSelector(state => state.constants.value.freelancersAvailableCards).filter(card => (
-        card.title.toLowerCase().includes(props.filters.title.toLowerCase())
-    ));
+    const filteredCards = useSelector(state => state.constants.value.freelancersAvailableCards).filter(card => {
+        return card.title.toLowerCase().includes(props.filters.title.toLowerCase()) && card.ratings === Number(props.filters.ratings)
+    });
     return (
         <Grid className={styles.mainGrid}>
             {

@@ -32,6 +32,7 @@ const Hero = () => {
                                 sx={{
                                     backgroundColor: button === "شاهد المزيد" ? theme.palette.primary.main : "rgb(230, 230, 230)",
                                     color: button === "شاهد المزيد" ? theme.palette.accent.light : theme.palette.accent.dark,
+                                    borderRadius: "16px",
                                     "&:hover": {
                                         color: theme.palette.accent.light
                                     }
