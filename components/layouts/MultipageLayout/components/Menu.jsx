@@ -35,7 +35,6 @@ const Menu = (props) => {
                     <InputAdornment position="start">
                         <IconButton
                           aria-label="toggle password visibility"
-                          onClick={() => handleShowPasswordClick(0)}
                           edge="start"
                         >
                             <SearchIcon color="primary" />
