@@ -18,7 +18,7 @@ const Freelancers = () => {
             <Grid className={styles.freelancersCardsGrid}>
                 {
                     freelancers.map((freelancer, index) => (
-                        <Cards key={index} title={`${freelancer.first_name} ${freelancer.last_name}`} body={freelancer.email} />
+                        <Cards key={index} title={`${freelancer.first_name} ${freelancer.last_name}`} body={freelancer.about} />
                     ))
                 }
             </Grid>
