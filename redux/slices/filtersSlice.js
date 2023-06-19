@@ -30,7 +30,7 @@ export const filtersSlice = createSlice({
         }
     },
     reducers: {
-        filterData: (state, action) => {
+    filterData: (state, action) => {
             state.value.jobsCards.filteredCards = state.value.jobsCards.allCards.filter((card => (
                 card.title.toLowerCase().includes(action.payload.title.toLowerCase())
             )))
