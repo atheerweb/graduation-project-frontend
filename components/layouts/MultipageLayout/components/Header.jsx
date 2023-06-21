@@ -13,19 +13,25 @@ import MenuIcon from '@mui/icons-material/Menu';
 // Next Components
 import Image from "next/image";
 // Hooks
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTheme } from "@mui/material/styles";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import useMediaQuery from '@mui/material/useMediaQuery';
 // CSS Modules
 import styles from '@/styles/modules/layouts/MultipageLayout/layout.module.css';
+import { Avatar } from "@mui/material";
 
 const Header = () => {
     const navLinks = useSelector(state => state.constants.value.navLinks);
+    const [ isLoggedIn, setIsLoggedIn ] = useState(false);
     const theme = useTheme();
     const router = useRouter();
     const media = useMediaQuery("(max-width: 1100px)");
+
+    useEffect(() => {
+        JSON.parse(localStorage.getItem("user")) ? setIsLoggedIn(true) : setIsLoggedIn(false);
+    }, []);
 
     const [display, setDisplay] = useState("none");
 
@@ -48,7 +54,7 @@ const Header = () => {
                                 textDecoration: "none"
                             }}
                             key={index}
-                            href={link.href}
+                            href={link.title === "صاحب عمل" && isLoggedIn ? link.href : "/signin"}
                         >
                             {link.title}
                         </Link>        
@@ -73,14 +79,19 @@ const Header = () => {
                     </InputAdornment>
                 }
             />
-            <Stack direction="row" gap="20px" display={media && "none"}>
-                <Link href="/signup">
-                    <Button variant="outlined" color="secondary">إنشاء حساب</Button>
-                </Link>
-                <Link href="/signin">
-                    <Button variant="contained" color="secondary">تسجيل دخول</Button>
-                </Link>
-            </Stack>
+            {
+                !isLoggedIn ?
+                    <Stack direction="row" gap="20px" display={media && "none"}>
+                        <Link href="/signup">
+                            <Button variant="outlined" color="secondary">إنشاء حساب</Button>
+                        </Link>
+                        <Link href="/signin">
+                            <Button variant="contained" color="secondary">تسجيل دخول</Button>
+                        </Link>
+                    </Stack>
+                    :
+                    <Avatar src={""} alt="Avatar" sx={{display: media && "none"}} />
+            }
             <MenuIcon sx={{color: theme.palette.primary.main, cursor: "pointer", display: !media && "none"}} onClick={handleMenuClick} />
         </Box>
     )

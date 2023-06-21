@@ -14,9 +14,11 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 // APIs
 import client from "@/lib/client";
+import { userLogin } from "@/redux/slices/userSlice";
 // Hooks
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
 import { useTheme } from "@mui/material/styles";
 import { useRouter } from "next/router";
 // CSS Modules
@@ -24,6 +26,7 @@ import styles from "@/styles/modules/signin/signin.module.css";
 
 const Form = () => {
     const theme = useTheme();
+    const dispatch = useDispatch();
     const router = useRouter();
     const [ showPassword, setShowPassword ] = useState(false);
     const { handleSubmit, register, formState: { errors } } = useForm();
@@ -34,7 +37,13 @@ const Form = () => {
 
     const onSubmit = (values) => {
         client.post("/accounts/api/login/", { ...values })
-        .then((response) => console.log(response.data))
+        .then((response) => {
+            window.localStorage.setItem("user", JSON.stringify({ 
+                token: response.data.token,
+                username: response.data.user.username
+            }));
+            dispatch(userLogin({ value: response.data }));
+        })
         .then(() => router.push("/"));
     }
 
