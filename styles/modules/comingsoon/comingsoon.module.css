@@ -1,0 +1,24 @@
+.success__container {
+  display: flex;
+  height: 80vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 40px 0;
+}
+
+.success__title {
+  color: rgb(255, 153, 51);
+  font-weight: 900;
+}
+.success__link {
+  font-weight: bold;
+  text-decoration: underline;
+  color: rgb(0, 153, 221);
+  margin: 0 0.5em;
+}
+
+.success__paragraph {
+  width: 50%;
+  text-align: center;
+}
