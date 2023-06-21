@@ -14,16 +14,18 @@ const Cards = (props) => {
             <CardHeader
                 title={
                     <Box className={styles.projectsCardsHeader}>
-                        <Typography>تصميم</Typography>
+                        <Typography>
+                            {props.content.project_name}
+                        </Typography>
                         <Typography variant="h3">{props.content.title}</Typography>
-                        <Typography sx={{opacity: 0.6}}>{props.content.date}</Typography>
+                        <Typography sx={{opacity: 0.6}}>{Math.floor((Math.random() * 23) + 2000)}</Typography>
                     </Box>   
                 }
             />
             <CardMedia component="img" height="194" image="/images/freelancers_projects.png" alt="Project" />
             <CardContent>
               <Typography variant="body2" color="text.secondary" textAlign="right">
-                {props.content.body}
+                {props.content.project_descriotion}
               </Typography>
             </CardContent>
         </Card>
