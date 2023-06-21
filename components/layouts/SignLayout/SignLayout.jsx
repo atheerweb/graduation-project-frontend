@@ -7,6 +7,8 @@ import Typography from "@mui/material/Typography";
 // Hooks
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useRouter } from "next/router";
+// APIs
+import client from "@/lib/client";
 // CSS Modules
 import styles from "@/styles/modules/signup/signup.module.css";
 
@@ -16,7 +18,22 @@ const SignLayout = ({ handleSubmit, activeStep, setActiveStep, children }) => {
 
     const onSubmit = (values) => {
         console.log(values);
-        activeStep ? router.push("/") : setActiveStep(previous => !previous);
+        activeStep ? 
+        client.post("/accounts/api/register/", {
+            first_name: values.firstname,
+            last_name: values.lastname,
+            username: values.username,
+            email: values.email,
+            password: values.password,
+            gender: values.gender === "ذكر" ? "M" : "F",
+            birth_date: values.date,
+            country: values.country,
+            city: values.city,
+            Address: values.address,
+            about: "",
+            image_url: ".."
+        })
+        .then(() => router.push("/")) : setActiveStep(previous => !previous);
     }
 
     return (

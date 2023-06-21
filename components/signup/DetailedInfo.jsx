@@ -27,7 +27,7 @@ const DetailedInfo = (props) => {
                 <FormControl>
                     <OutlinedInput placeholder="التاريخ" type={"date"} {...props.register("date", { required: "التاريخ مطلوبة"})} /> 
                     <FormHelperText sx={{color: "red"}}>
-                        {props.errors?.year?.message?.toString()}
+                        {props.errors?.date?.message?.toString()}
                     </FormHelperText>
                 </FormControl>
                 <FormControl>

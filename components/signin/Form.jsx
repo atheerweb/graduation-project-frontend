@@ -12,6 +12,8 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import FormHelperText from "@mui/material/FormHelperText";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
+// APIs
+import client from "@/lib/client";
 // Hooks
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -31,8 +33,9 @@ const Form = () => {
     }
 
     const onSubmit = (values) => {
-        console.log(values);
-        router.push("/");
+        client.post("/accounts/api/login/", { ...values })
+        .then((response) => console.log(response.data))
+        .then(() => router.push("/"));
     }
 
     return (
@@ -44,12 +47,12 @@ const Form = () => {
             <FormControl className={styles.formControls}>
                 <OutlinedInput
                     variant={"outlined"}
-                    type={"email"}
-                    placeholder={"البريد الإلكترونى"}
-                    {...register("email", { required: "البريد الالكترونى مطلوب" })}
+                    type={"text"}
+                    placeholder={"اسم المستخدم"}
+                    {...register("username", { required: "اسم المستخدم مطلوب" })}
                 />
                 <FormHelperText sx={{color: "red"}}>
-                    {errors?.email?.message?.toString()}
+                    {errors?.username?.message?.toString()}
                  </FormHelperText>
             </FormControl>
             <FormControl className={styles.formControls}>
@@ -57,7 +60,7 @@ const Form = () => {
                     variant={"outlined"}
                     placeholder={"كلمة المرور"}
                     type={showPassword ? "text" : "password"}
-                    {...register("password", { required: "كلمة المرور مطلوبة", minLength: { value: 12, message: "12 على الأقل" }})}
+                    {...register("password", { required: "كلمة المرور مطلوبة" })}
                     endAdornment={
                         <InputAdornment position="end">
                             <IconButton

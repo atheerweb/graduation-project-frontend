@@ -54,6 +54,17 @@ const FundamentalInfo = (props) => {
                 <FormControl className={styles.stableGridItems} >
                     <OutlinedInput
                         variant={"outlined"}
+                        type={"text"}
+                        placeholder={"اسم المستخدم"}
+                        {...props.register("username", { required: "اسم المستخدم مطلوب" })}
+                    />
+                    <FormHelperText sx={{color: "red"}}>
+                        {props.errors?.username?.message?.toString()}
+                     </FormHelperText>
+                </FormControl>
+                <FormControl className={styles.stableGridItems} >
+                    <OutlinedInput
+                        variant={"outlined"}
                         type={"email"}
                         placeholder={"البريد الإلكترونى"}
                         {...props.register("email", { required: "البريد الالكترونى مطلوب" })}
