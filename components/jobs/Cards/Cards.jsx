@@ -22,27 +22,27 @@ const Cards = (props) => {
                 }
                 title={
                     <Typography sx={{mr: 1.5}}>
-                        {props.card.title}
+                        {props.card.jop_title}
                     </Typography>
                 }
                 subheader={
                     <Box sx={{display: "flex", justifyContent: "space-between", alignItems: "center", px: 1.5}}>
                         <Typography>
-                            {props.card.freelancer}
+                            {props.card.user_full_name[0]}
                         </Typography>
                         <Typography>
-                            {props.card.time}
+                            {`منذ ${new Date().getMinutes() - new Date(props.card.entry_date).getMinutes()} دقيقة`}
                         </Typography>
                     </Box>
                 }
             />
             <CardContent>
                 <Typography variant="body2" color="text.secondary">
-                    {props.card.body}
+                    {props.card.descriotion}
                 </Typography>
             </CardContent>
             <CardActions sx={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
-                <Link href={`/jobs/${props.card.id}`} style={{textDecoration: "none"}}>
+                <Link href={`/jobs/${props.card.job_id}`} style={{textDecoration: "none"}}>
                     <Typography color="primary" sx={{cursor: "pointer", textDecoration: "none"}}>
                         ضف عرضك
                     </Typography>

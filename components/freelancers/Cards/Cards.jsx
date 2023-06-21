@@ -24,23 +24,23 @@ const Cards = (props) => {
                 }
                 title={
                     <Typography sx={{mr: 1.5}}>
-                        {props.card.title}
+                        {`${props.card.first_name} ${props.card.last_name}`}
                     </Typography>
                 }
                 subheader={
                     <Box sx={{display: "flex", alignItems: "center", gap: "10px", px: 1.5}}>
                         <Typography component="legend">التقييمات</Typography>
-                        <Rating size="small" name="read-only" value={props.card.ratings} readOnly />
+                        <Rating size="small" name="read-only" value={Math.floor((Math.random() * 5) + 1)} readOnly />
                     </Box>
                 }
             />
             <CardContent>
                 <Typography variant="body2" color="text.secondary">
-                    {props.card.body}
+                    {props.card.about}
                 </Typography>
             </CardContent>
             <CardActions sx={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
-                <Link href={{pathname: `/freelancers/${props.card.id}`}} style={{textDecoration: "none"}}>
+                <Link href={{pathname: `/freelancers/${props.card.username}`}} style={{textDecoration: "none"}}>
                     <Typography color="primary" sx={{cursor: "pointer"}}>
                         وظفنى
                     </Typography>
