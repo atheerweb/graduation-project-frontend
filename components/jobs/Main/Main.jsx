@@ -3,13 +3,13 @@ import Grid from "@mui/material/Grid";
 // Components
 import Cards from "../Cards/Cards";
 // Hooks
-import { useApi } from "@/lib/hooks";
+import { useSelector } from "react-redux";
 // CSS Modules
 import styles from "@/styles/modules/jobs/jobs.module.css";
 
 
 const Main = (props) => {
-    const jobs = useApi("/freelance/jobs/").filter(card => (
+    const jobs = useSelector(state => state.api.value.allJobs).filter(card => (
         card.jop_title.toLowerCase().includes(props.filters.title.toLowerCase())
     ));
 

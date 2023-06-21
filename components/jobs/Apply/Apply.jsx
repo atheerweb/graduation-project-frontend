@@ -12,7 +12,6 @@ import Stack from "@mui/material/Stack";
 import StyleIcon from '@mui/icons-material/Style';
 import Typography from "@mui/material/Typography";
 // Hooks
-import { useApi } from "@/lib/hooks";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
@@ -21,11 +20,11 @@ import styles from "@/styles/modules/jobs/apply.module.css";
 
 const Apply = () => {
     const router = useRouter();
-    const job = useApi(`/freelance/viewsets/job/${router.query.id}`);
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const job = useSelector(state => state.api.value.oneJob);
     const chips = useSelector(state => state.constants.value.freelancersAboutChips);
 
-    const onSubmit = (values) => {
+    const onSubmit = () => {
         router.push("/signin")
     }
 

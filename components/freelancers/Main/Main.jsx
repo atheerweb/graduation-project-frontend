@@ -4,12 +4,13 @@ import Grid from "@mui/material/Grid";
 import Cards from "../Cards/Cards";
 // Hooks
 import { useApi } from "@/lib/hooks";
+import { useSelector } from "react-redux";
 // CSS Modules
 import styles from "@/styles/modules/freelancers/freelancers.module.css";
 
 
 const Main = (props) => {
-    const filteredCards = useApi("/freelance/all-freelancers/").filter(card => {
+    const filteredCards = useSelector(state => state.api.value.allFreelancers).filter(card => {
         const fullName = `${card.first_name} ${card.last_name}`;
         return fullName.toLowerCase().includes(props.filters.title.toLowerCase()) 
     });

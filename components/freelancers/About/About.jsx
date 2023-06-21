@@ -7,15 +7,12 @@ import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import StyleIcon from '@mui/icons-material/Style';
 // Hooks
-import { useApi } from "@/lib/hooks";
-import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
 // CSS Modules
 import styles from "@/styles/modules/freelancers/about.module.css";
 
 const About = () => {
-    const { query: { username } } = useRouter();
-    const freelancer = useApi(`/freelance/freelancer/${username}`);
+    const freelancer = useSelector(state => state.api.value.oneFreelancer);
     const chips = useSelector(state => state.constants.value.freelancersAboutChips);
     
     return (

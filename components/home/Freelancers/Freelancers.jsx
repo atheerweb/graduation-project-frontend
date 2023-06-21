@@ -5,12 +5,12 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 // Hooks
-import { useApi } from "@/lib/hooks";
+import { useSelector } from "react-redux";
 // CSS Modules
 import styles from "@/styles/modules/home/freelancers.module.css";
 
 const Freelancers = () => {
-    const freelancers = useApi("/freelance/top-5-freelancers/");
+    const freelancers = useSelector(state => state.api.value.topFreelancers);
 
     return (
         <Box className={styles.freelancers}>

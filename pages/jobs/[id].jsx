@@ -5,13 +5,17 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 // Hooks
 import { useApi } from "@/lib/hooks";
+import { useDispatch } from "react-redux";
 import { useRouter } from "next/router";
+// APIs
+import client from "@/lib/client";
+import { setOneJob } from "@/redux/slices/apiSlice";
 // CSS Module
 import styles from "@/styles/modules/jobs/proposal.module.css";
 
-const JobProposal = () => {
-    const { query: { id } } = useRouter();
-    const job = useApi(`/freelance/viewsets/job/${id}`);
+const JobProposal = ({ job }) => {
+    const dispatch = useDispatch();
+    job && dispatch(setOneJob({ value: job }));
 
     return (
         <Box className={styles.proposal}>
@@ -22,5 +26,16 @@ const JobProposal = () => {
         </Box>
     )
 }
+
+export const getServerSideProps = async (context) => {
+    const response = await client.get(`/freelance/viewsets/job/${context.query.id}`);
+    const data = await response.data;
+  
+    return {
+      props: {
+        job: data
+      }
+    }
+  }
 
 export default JobProposal;
