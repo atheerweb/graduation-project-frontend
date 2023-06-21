@@ -12,14 +12,16 @@ import Stack from "@mui/material/Stack";
 import StyleIcon from '@mui/icons-material/Style';
 import Typography from "@mui/material/Typography";
 // Hooks
-import { useSelector } from "react-redux";
+import { useApi } from "@/lib/hooks";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
 // CSS Modules
 import styles from "@/styles/modules/jobs/apply.module.css";
 
 const Apply = () => {
     const router = useRouter();
+    const job = useApi(`/freelance/viewsets/job/${router.query.id}`);
     const { register, handleSubmit, formState: { errors } } = useForm();
     const chips = useSelector(state => state.constants.value.freelancersAboutChips);
 
@@ -32,23 +34,8 @@ const Apply = () => {
             <form className={styles.contentContainer} onSubmit={handleSubmit(onSubmit)}>
                 <Box className={styles.main}>
                     <Box className={styles.descriptionContainer}>
-                        <Typography variant="h3">
-                            عمل تصميم لموقع
-                        </Typography>
-                        <Box>
-                            <Typography color="primary" sx={{textDecoration: "underline"}}>
-                                مواقع ويب
-                            </Typography>
-                            <Typography color="accent.primary">
-                                منذ أربع ساعات
-                            </Typography>
-                        </Box>
                         <Typography color="accent.primary">
-                            - السلام عليكم و رحمة الله و بركاته.. <br />
-                            لدي فكرة لتطوير قالب شوبيفاي باللغة العربية و أيضا يحتوي على تنسيقات و تصاميم جاهزة بحيث يكون سهل للمستخدمين في انشاء متاجرهم الخاصة بمختلف المجالات…
-                            القالب سيكون عبارة عن منتج للبيع بحيث يسهل لمستخدمين منصة الشوبيفاي المبتدئين الراغبين في عمل متجر شوبيفاي باللغة العربية و و بتصاميم احترافية…
-                            على من بجد نفسه قادر على تنفيذ المشروع يتفضل بالتواصل
-                            و من الله التوفيق
+                            {job.descriotion}
                         </Typography>
                     </Box>
                     <Box className={styles.descriptionContainer}>
