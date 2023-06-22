@@ -27,7 +27,7 @@ const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const theme = useTheme();
   const router = useRouter();
-  const media = useMediaQuery('(max-width: 1100px)');
+  const media = useMediaQuery('(max-width: 1250px)');
 
   useEffect(() => {
     typeof window !== "undefined" &&

@@ -41,7 +41,7 @@ const Proposers = (props) => {
                             </Stack>
                         </Box>
                         <Typography>
-                            {props.content.time}
+                            منذ {props.content.time} يوم
                         </Typography>
                     </Box>
                 }

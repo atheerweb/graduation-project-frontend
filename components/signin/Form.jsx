@@ -40,7 +40,7 @@ const Form = () => {
         .then((response) => {
             window.localStorage.setItem("user", JSON.stringify({ 
                 token: response.data.token,
-                username: response.data.user.username
+                user: response.data.user
             }));
             dispatch(userLogin({ value: response.data }));
         })
@@ -95,7 +95,7 @@ const Form = () => {
                     </Typography>
                 </Link>
                 <Button type={"submit"} sx={{backgroundColor: theme.palette.secondary.main, color: theme.palette.accent.light, fontWeight: "bold", "&:hover": {color: theme.palette.secondary.main}}}>
-                    التالى
+                    التسجيل
                 </Button>
             </Box>
         </form>

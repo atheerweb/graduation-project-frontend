@@ -18,7 +18,7 @@ const Testimonials = (props) => {
             <Grid className={styles.testimonialsGrid}>
                 {
                     testimonialsCards.map((card, index) => (
-                        <Cards key={index} title={card.title} body={card.body} />
+                        <Cards key={index} content={card} />
                     ))
                 }
             </Grid>

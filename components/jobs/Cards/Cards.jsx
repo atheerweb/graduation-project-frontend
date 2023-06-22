@@ -47,7 +47,7 @@ const Cards = (props) => {
                         ضف عرضك
                     </Typography>
                 </Link>
-                <IconButton aria-label="add to favorites">
+                <IconButton disabled aria-label="add to favorites">
                     <Favorite />
                 </IconButton>
             </CardActions>

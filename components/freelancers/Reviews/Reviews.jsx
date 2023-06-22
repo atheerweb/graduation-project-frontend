@@ -6,23 +6,40 @@ import Button from "@mui/material/Button";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import Typography from "@mui/material/Typography";
 import Rating from "@mui/material/Rating";
+import { addFreelancerRatings } from "@/redux/slices/constantsSlice";
 // Hooks
 import { useState } from "react";
 import { useTheme } from "@mui/material/styles";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
+import { useSelector, useDispatch } from "react-redux";
 // CSS Modules
 import styles from "@/styles/modules/freelancers/reviews.module.css";
 
 const Reviews = () => {
     const { register, handleSubmit } = useForm();
+    const dispatch = useDispatch();
+    const ratings = useSelector(state => state.constants.value.freelancerRatings);
     const router = useRouter();
     const theme = useTheme();
     const [rating, setRating] = useState(5);
 
     const onSubmit = (values) => {
-        console.log({...values, rating: rating});
-        router.push("/signin");
+        const user = JSON.parse(localStorage.getItem("user")).user;
+
+        JSON.parse(localStorage.getItem("user")).token ?
+        dispatch(addFreelancerRatings({
+            value: {
+                id: user.id,
+                avatar: user.first_name[0],
+                title: `${user.first_name} ${user.last_name}`,
+                ratings: rating,
+                job: "عميل",
+                time: new Date().toLocaleDateString(),
+                description: values.notes
+            }
+        })) :
+        router.push("/signin")
     }
 
     return (
@@ -50,9 +67,11 @@ const Reviews = () => {
                         </Button>
                     </form>
                     <Box className={styles.cardsContainer}>
-                        <Ratings />
-                        <Ratings />
-                        <Ratings />
+                        {
+                            ratings.map(rating => (
+                                <Ratings content={rating} />
+                            ))
+                        }
                     </Box>
                 </Box>
                 <Box className={styles.ratingBox}>

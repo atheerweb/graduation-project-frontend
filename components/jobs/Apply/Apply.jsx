@@ -11,20 +11,37 @@ import OutlinedInput from "@mui/material/OutlinedInput";
 import Stack from "@mui/material/Stack";
 import StyleIcon from '@mui/icons-material/Style';
 import Typography from "@mui/material/Typography";
+import { addJobsProposer } from "@/redux/slices/constantsSlice";
 // Hooks
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 // CSS Modules
 import styles from "@/styles/modules/jobs/apply.module.css";
 
 const Apply = () => {
     const router = useRouter();
+    const dispatch = useDispatch();
     const { register, handleSubmit, formState: { errors } } = useForm();
     const job = useSelector(state => state.api.value.oneJob);
     const chips = useSelector(state => state.constants.value.freelancersAboutChips);
 
-    const onSubmit = () => {
+    const onSubmit = (values) => {
+        const user = JSON.parse(localStorage.getItem("user")).user;
+
+        JSON.parse(localStorage.getItem("user")).token ?
+        dispatch(addJobsProposer({
+            value: {
+                id: user.id,
+                avatar: user.first_name[0],
+                title: `${user.first_name} ${user.last_name}`,
+                ratings: 5,
+                job: "مستقل",
+                price: values.price,
+                time: values.deadline,
+                body: values.description
+            }
+        })) :
         router.push("/signin")
     }
 
@@ -33,6 +50,9 @@ const Apply = () => {
             <form className={styles.contentContainer} onSubmit={handleSubmit(onSubmit)}>
                 <Box className={styles.main}>
                     <Box className={styles.descriptionContainer}>
+                        <Typography variant="h3">
+                            توصيف
+                        </Typography>
                         <Typography color="accent.primary">
                             {job.descriotion}
                         </Typography>
@@ -99,7 +119,7 @@ const Apply = () => {
                     <Button type="submit" className={styles.buttons} sx={{color: "white", gap: "20px", width: "150px"}} variant="contained" startIcon={<MailOutlineIcon sx={{color: "white"}} />}>
                         ضف عرضك
                     </Button>
-                    <Button onClick={() => router.push("/signin")} className={styles.buttons} sx={{gap: "10px", width: "150px"}} variant="outlined" startIcon={<FavoriteBorderOutlinedIcon />}>
+                    <Button disabled className={styles.buttons} sx={{gap: "10px", width: "150px"}} variant="outlined" startIcon={<FavoriteBorderOutlinedIcon />}>
                         ضف للمفضلة
                     </Button>
                 </Box>

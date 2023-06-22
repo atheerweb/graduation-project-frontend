@@ -18,13 +18,12 @@ const Cards = (props) => {
                 }
                 titleTypographyProps={{ variant: "h6", fontWeight: "bold" }}
                 subheaderTypographyProps={{color: theme.palette.accent.dark, opacity: 0.87}}
-                title={props.title}
-                subheader={props.body}
+                title={props.content.title}
+                subheader={props.content.body}
             />
             <CardContent>
                 <Typography variant="body2" sx={{color: theme.palette.accent.dark, opacity: 0.6}}>
-                    أبجد هوز حطي كلمن سعفص قرشت ثخذ ضظغ أبجد هوز حطي كلمن سعفص قرشت ثخذ ضظغ أبجد هوز حطي كلمن سعفص قرشت ثخذ ضظغ
-                    أبجد هوز حطي كلمن سعفص قرشت ثخذ ضظغ أبجد هوز حطي كلمن سعفص قرشت ثخذ ضظغ أبجد هوز حطي كلمن سعفص قرشت ثخذ ضظغ
+                    {props.content.description}
                 </Typography>
             </CardContent>
         </Card>

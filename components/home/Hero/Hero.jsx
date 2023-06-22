@@ -7,12 +7,14 @@ import ArrowCircleLeftOutlinedIcon from '@mui/icons-material/ArrowCircleLeftOutl
 // Hooks
 import { useTheme } from "@mui/material/styles";
 import { useSelector } from "react-redux";
+import { useRouter } from "next/router";
 import useMediaQuery from '@mui/material/useMediaQuery';
 // CSS Modules
 import styles from "@/styles/modules/home/hero.module.css";
 
 const Hero = () => {
     const theme = useTheme();
+    const router = useRouter();
     const media = useMediaQuery("(max-width: 500px)");
     const heroButtons = useSelector(state => state.constants.value.heroButtons);
 
@@ -27,12 +29,14 @@ const Hero = () => {
                         heroButtons.map((button, index) => (
                             <Button 
                                 key={index}
+                                onClick={() => {button === "شاهد المزيد" && router.push("/jobs")}}
                                 className={styles.heroButtons}
                                 startIcon={button === "شاهد المزيد" && <ArrowCircleLeftOutlinedIcon />}
                                 sx={{
                                     backgroundColor: button === "شاهد المزيد" ? theme.palette.primary.main : "rgb(230, 230, 230)",
                                     color: button === "شاهد المزيد" ? theme.palette.accent.light : theme.palette.accent.dark,
                                     borderRadius: "16px",
+                                    cursor: button === "شاهد المزيد" ? "pointer" : "default",
                                     "&:hover": {
                                         color: theme.palette.accent.light
                                     }

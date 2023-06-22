@@ -9,19 +9,21 @@ import PersonIcon from '@mui/icons-material/Person';
 import Rating from "@mui/material/Rating";
 import Stack from "@mui/material/Stack";
 
-const Ratings = () => {
+const Ratings = ({ content }) => {
     return (
         <Card sx={{minHeight: "135px", minWidth: "300px"}}>
             <CardHeader
                 avatar={
                     <Avatar aria-label="recipe">
-                        R
+                        {content.avatar}
                     </Avatar>
                 }
                 title={
                     <Box sx={{display: "flex", justifyContent: "space-between", alignItems: "center", mr: 1.25}}>
-                        <Typography variant="h3">د. محمد خالد</Typography>
-                        <Rating name="read-only" size="small" value={5} readOnly />
+                        <Typography variant="h3">
+                            {content.title}
+                        </Typography>
+                        <Rating name="read-only" size="small" value={content.ratings} readOnly />
                     </Box>
                 }
                 subheader={
@@ -29,18 +31,18 @@ const Ratings = () => {
                         <Stack direction="row" gap="5px">
                             <PersonIcon />
                             <Typography>
-                                مدير شركة
+                                {content.job}
                             </Typography>
                         </Stack>
                         <Typography>
-                            2023-05-16
+                            {content.time}
                         </Typography>
                     </Box>
                 }
             />
             <CardContent sx={{px: 4}}>
                 <Typography variant="body2" color="text.secondary">
-                    شغل ممتاز جدا المشروع على اكمل وجهه سريع في التواصل والردود انصح جدا بالتعامل معه راقي وذو اخلاق
+                    {content.description}
                 </Typography>
             </CardContent>
       </Card>
