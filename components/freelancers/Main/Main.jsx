@@ -3,7 +3,6 @@ import Grid from "@mui/material/Grid";
 // Components
 import Cards from "../Cards/Cards";
 // Hooks
-import { useApi } from "@/lib/hooks";
 import { useSelector } from "react-redux";
 // CSS Modules
 import styles from "@/styles/modules/freelancers/freelancers.module.css";

@@ -30,10 +30,11 @@ const Header = () => {
   const media = useMediaQuery('(max-width: 1100px)');
 
   useEffect(() => {
+    typeof window !== "undefined" &&
     JSON.parse(localStorage.getItem('user'))
       ? setIsLoggedIn(true)
       : setIsLoggedIn(false);
-  }, []);
+  }, [ typeof window ]);
 
   const [display, setDisplay] = useState('none');
 

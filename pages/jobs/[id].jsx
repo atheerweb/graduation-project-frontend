@@ -4,9 +4,7 @@ import Data from "@/components/jobs/Data/Data";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 // Hooks
-import { useApi } from "@/lib/hooks";
 import { useDispatch } from "react-redux";
-import { useRouter } from "next/router";
 // APIs
 import client from "@/lib/client";
 import { setOneJob } from "@/redux/slices/apiSlice";
