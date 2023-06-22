@@ -68,8 +68,8 @@ const Reviews = () => {
                     </form>
                     <Box className={styles.cardsContainer}>
                         {
-                            ratings.map(rating => (
-                                <Ratings content={rating} />
+                            ratings.map((rating, index) => (
+                                <Ratings key={index} content={rating} />
                             ))
                         }
                     </Box>
