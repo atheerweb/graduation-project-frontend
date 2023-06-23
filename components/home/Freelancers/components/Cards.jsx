@@ -5,15 +5,17 @@ import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 // Hooks
+import { useRouter } from "next/router";
 import { useTheme } from "@mui/material/styles";
 // CSS Modules
 import styles from "@/styles/modules/home/freelancers.module.css";
 
 const Cards = (props) => {
     const theme = useTheme();
+    const router = useRouter();
 
     return (
-        <Card>
+        <Card onClick={() => router.push(`freelancers/${props.username}`)}>
             <CardActionArea>
                 <CardMedia component="img" image="images/freelancers_images.png" alt="Freelancer" />
                 <CardContent className={styles.freelancersCardsContent}>
