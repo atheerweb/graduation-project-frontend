@@ -9,6 +9,8 @@ import InputAdornment from '@mui/material/InputAdornment';
 import Link from '@mui/material/Link';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
+import MenuList from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 import MenuIcon from '@mui/icons-material/Menu';
 // Next Components
 import Image from 'next/image';
@@ -21,13 +23,18 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 // CSS Modules
 import styles from '@/styles/modules/layouts/MultipageLayout/layout.module.css';
 import Dropper from './Dropper';
+import { useApi } from '@/lib/hooks';
 
 const Header = () => {
   const navLinks = useSelector((state) => state.constants.value.navLinks);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
   const theme = useTheme();
   const router = useRouter();
   const media = useMediaQuery('(max-width: 1250px)');
+  const freelancers = useApi("/freelance/all-freelancers/");
 
   useEffect(() => {
     typeof window !== "undefined" &&
@@ -41,6 +48,27 @@ const Header = () => {
   const handleMenuClick = () => {
     setDisplay((previous) => (previous === 'none' ? 'flex' : 'none'));
   };
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const closingHandle = () => {
+    setAnchorEl(null);
+  };
+
+  const handleSearchClick = () => {
+    freelancers.forEach(freelancer => {
+      const fullName = `${freelancer.first_name} ${freelancer.last_name}`;
+      if (fullName === searchValue) {
+        freelancers && router.push(`/freelancers/${freelancer.username}`)
+      }
+    })
+  }
 
   return (
     <Box
@@ -83,21 +111,49 @@ const Header = () => {
           </Link>
         ))}
       </Stack>
-      <OutlinedInput
-        className={styles.mainNavSearch}
-        variant="outlined"
-        placeholder="ابحث عن مستقلين"
-        dir="ltr"
-        inputProps={{ style: { textAlign: 'end', borderRadius: '25px' } }}
-        sx={{ display: media && 'none', borderRadius: '25px' }}
-        startAdornment={
-          <InputAdornment position="start">
-            <IconButton aria-label="toggle password visibility" edge="start">
-              <SearchIcon color="primary" />
-            </IconButton>
-          </InputAdornment>
+      <>
+      <Box
+        
+        sx={{ display: 'flex', cursor: 'pointer' }}
+      >
+        <OutlinedInput
+          className={styles.mainNavSearch}
+          variant="outlined"
+          placeholder="ابحث عن مستقلين"
+          id="fade-button"
+        aria-controls={open ? 'fade-menu' : undefined}
+        aria-haspopup="true"
+        aria-expanded={open ? 'true' : undefined}
+        onFocus={handleClick}
+          dir="ltr"
+          value={searchValue}
+          onChange={(event) => setSearchValue(event.target.value)}
+          inputProps={{ style: { textAlign: 'end', borderRadius: '25px' } }}
+          sx={{ display: media && 'none', borderRadius: '25px' }}
+          startAdornment={
+            <InputAdornment position="start">
+              <IconButton onClick={handleSearchClick} aria-label="toggle password visibility" edge="start">
+                <SearchIcon color="primary" />
+              </IconButton>
+            </InputAdornment>
+          }
+        />
+      </Box>
+      <MenuList disableEnforceFocus disableAutoFocus disableAutoFocusItem sx={{borderRadius: "25px"}} autoFocus={false} anchorEl={anchorEl} open={open} onClose={closingHandle}>
+        {
+          freelancers.map(freelancer => {
+            const fullName = `${freelancer.first_name} ${freelancer.last_name}`;
+
+            if (fullName.includes(searchValue)) {
+
+              return <MenuItem key={freelancer.username} onClick={() => {setAnchorEl(null); setSearchValue(fullName)}} sx={{ width: '409px', justifyContent: 'flex-end' }}>
+                {fullName}
+              </MenuItem>
+            }
+          })
         }
-      />
+      </MenuList>
+      </>
       {!isLoggedIn ? (
         <Stack direction="row" gap="20px" display={media && 'none'}>
           <Link href="/signup">

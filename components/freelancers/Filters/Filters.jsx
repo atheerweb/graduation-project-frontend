@@ -16,8 +16,7 @@ import styles from "@/styles/modules/freelancers/freelancers.module.css";
 
 const Filters = (props) => {
     const [ categoryValue, setCategoryValue ] = useState([]);
-    const [rating, setRating] = useState(5);
-    const [title, setTitle] = useState("");
+    const [rating, setRating] = useState(1);
 
     const handleDelete = value => {
       const newValue = categoryValue.filter(category => category !== value);
@@ -30,7 +29,7 @@ const Filters = (props) => {
                 variant={"outlined"}
                 type={"text"}
                 placeholder={"بحث"}
-                onChange={(event) => {setTitle(event.target.value); props.setFilters({ type: "title", payload: event.target.value })}}
+                onChange={(event) => {props.setFilters({ type: "title", payload: event.target.value })}}
             />
             <FormControl>
                 <InputLabel id={"التصنيف"}>
