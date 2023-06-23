@@ -67,46 +67,6 @@ const Filters = (props) => {
                 <MenuItem value={"التصنيف الثالث"}>التصنيف الثالث</MenuItem>
             </Select>
       </FormControl>
-            <OutlinedInput 
-                variant={"outlined"}
-                type={"text"}
-                placeholder={"كلمات مفتاحية"}
-            />
-            <FormControl className={styles.checkboxes} component="fieldset" variant="standard">
-                <FormLabel component="legend">
-                    مدة التسليم
-                </FormLabel>
-                <FormGroup className={styles.checkboxContainer}>
-                  <FormControlLabel
-                    sx={{m: 0}}
-                    label="أقل من اسبوع"
-                    control={
-                      <Checkbox name="أقل من اسبوع" sx={{pr: 0}} />
-                    }
-                  />
-                  <FormControlLabel
-                    sx={{m: 0}}
-                    label="من 1 إلي 3 اسابيع"
-                    control={
-                      <Checkbox name="من 1 إلي 3 اسابيع" sx={{pr: 0}} />
-                    }
-                  />
-                  <FormControlLabel
-                    sx={{m: 0}}
-                    label="من 3 اسابيع إلي شهر"
-                    control={
-                      <Checkbox name="من 3 اسابيع إلي شهر" sx={{pr: 0}} />
-                    }
-                  />
-                  <FormControlLabel
-                    sx={{m: 0}}
-                    label="أكثر من شهر"
-                    control={
-                      <Checkbox name="أكثر من شهر" sx={{pr: 0}} />
-                    }
-                  />
-                </FormGroup>
-            </FormControl>
             <FormLabel>
                 الميزانية
             </FormLabel>

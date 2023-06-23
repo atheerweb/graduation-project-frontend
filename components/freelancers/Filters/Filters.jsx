@@ -67,11 +67,6 @@ const Filters = (props) => {
                 <MenuItem value={"التصنيف الثالث"}>التصنيف الثالث</MenuItem>
             </Select>
         </FormControl>
-            <OutlinedInput 
-                variant={"outlined"}
-                type={"text"}
-                placeholder={"كلمات مفتاحية"}
-            />
             <Box sx={{mt: "15px"}}>
                 <Typography component="legend">التقييم</Typography>
                 <Rating
