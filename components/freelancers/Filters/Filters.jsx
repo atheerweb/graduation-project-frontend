@@ -30,7 +30,7 @@ const Filters = (props) => {
                 variant={"outlined"}
                 type={"text"}
                 placeholder={"بحث"}
-                onChange={(event) => {setTitle(event.target.value); props.setFilters({title: event.target.value, ratings: rating})}}
+                onChange={(event) => {setTitle(event.target.value); props.setFilters({ type: "title", payload: event.target.value })}}
             />
             <FormControl>
                 <InputLabel id={"التصنيف"}>
@@ -74,7 +74,7 @@ const Filters = (props) => {
                     max={5}
                     dir="ltr"
                     name="unique-rating"
-                    onChange={(event, newValue) => {setRating(newValue); props.setFilters({title: title, ratings: event.target.value})}}
+                    onChange={(event, newValue) => {setRating(newValue); props.setFilters({type: "ratings", payload: newValue})}}
                 />
             </Box>
         </Box>

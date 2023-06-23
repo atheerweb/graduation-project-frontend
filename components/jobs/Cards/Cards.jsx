@@ -31,7 +31,7 @@ const Cards = (props) => {
                             {props.card.user_full_name[0]}
                         </Typography>
                         <Typography>
-                            {`منذ ${new Date().getMinutes() - new Date(props.card.entry_date).getMinutes()} دقيقة`}
+                            {`منذ ${Math.abs(new Date().getMinutes() - new Date(props.card.entry_date).getMinutes())} يوم`}
                         </Typography>
                     </Box>
                 }

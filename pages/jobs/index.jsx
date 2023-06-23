@@ -6,15 +6,23 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 // Hooks
 import { useDispatch } from "react-redux";
-import { useState } from "react";
+import { useReducer } from "react";
 // API
 import client from "@/lib/client";
 import { setAllJobs } from "@/redux/slices/apiSlice";
 // CSS Modules
 import styles from "@/styles/modules/jobs/jobs.module.css";
 
+export const reducer = (state, action) => {
+    switch(action.type) {
+        case "title": return { title: action.payload, minPrice: state.minPrice, maxPrice: state.maxPrice };
+        case "minPrice": return { title: state.title, minPrice: action.payload, maxPrice: state.maxPrice };
+        default: return { title: state.title, minPrice: state.minPrice, maxPrice: action.payload };
+    }
+}
+
 const Jobs = ({ jobs }) => {
-    const [ filters, setFilters ] = useState({title: ""});
+    const [filters, setFilters] = useReducer(reducer, { title: "", minPrice: 0, maxPrice: 9999999 });
     const dispatch = useDispatch();
     jobs && dispatch(setAllJobs({ value: jobs }));
 

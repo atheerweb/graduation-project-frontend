@@ -5,7 +5,7 @@ import Main from "@/components/freelancers/Main/Main";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 // Hooks
-import { useState } from "react";
+import { useReducer, useState } from "react";
 import { useDispatch } from "react-redux";
 // API
 import client from "@/lib/client";
@@ -13,8 +13,15 @@ import { setAllFreelancers } from "@/redux/slices/apiSlice";
 // CSS Modules
 import styles from "@/styles/modules/freelancers/freelancers.module.css";
 
+const reducer = (state, action) => {
+    switch (action.type) {
+        case "title": return { title: action.payload, ratings: state.ratings };
+        default: return { title: state.title, ratings: action.payload };
+    }
+}
+
 const Freelancers = ({ freelancers }) => {
-    const [ filters, setFilters ] = useState({title: "", ratings: 5});
+    const [ filters, setFilters ] = useReducer(reducer, {title: "", ratings: 5});
     const dispatch = useDispatch();
     freelancers && dispatch(setAllFreelancers({ value: freelancers }));
 

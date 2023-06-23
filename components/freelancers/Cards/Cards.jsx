@@ -30,7 +30,7 @@ const Cards = (props) => {
                 subheader={
                     <Box sx={{display: "flex", alignItems: "center", gap: "10px", px: 1.5}}>
                         <Typography component="legend">التقييمات</Typography>
-                        <Rating size="small" name="read-only" value={Math.floor((Math.random() * 5) + 1)} readOnly />
+                        <Rating size="small" name="read-only" value={props.ratings} readOnly />
                     </Box>
                 }
             />

@@ -2,11 +2,8 @@
 import Box from "@mui/material/Box";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import FormControl from "@mui/material/FormControl";
-import FormGroup from "@mui/material/FormGroup";
 import FormLabel from "@mui/material/FormLabel";
-import FormControlLabel from "@mui/material/FormControlLabel";
 import Cancel from "@mui/icons-material/Cancel";
-import Checkbox from "@mui/material/Checkbox";
 import Chip from "@mui/material/Chip";
 import InputLabel from "@mui/material/InputLabel";
 import Select from "@mui/material/Select";
@@ -30,7 +27,7 @@ const Filters = (props) => {
                 variant={"outlined"}
                 type={"text"}
                 placeholder={"بحث"}
-                onChange={(event) => props.setFilters({title: event.target.value})}
+                onChange={(event) => props.setFilters({ type: "title", payload: event.target.value })}
             />
             <FormControl>
                 <InputLabel id={"التصنيف"}>
@@ -76,12 +73,14 @@ const Filters = (props) => {
                     variant={"outlined"}
                     type={"tel"}
                     placeholder={"من"}
+                    onChange={(event) => props.setFilters({ type: "minPrice", payload: event.target.value.length ? event.target.value : 0 })}
                 />
                 <OutlinedInput
                     className={styles.fromToInputs} 
                     variant={"outlined"}
                     type={"tel"}
                     placeholder={"إلى"}
+                    onChange={(event) => props.setFilters({ type: "maxPrice", payload: event.target.value.length ? event.target.value : 999999 })}
                 />
             </Box>
         </Box>
