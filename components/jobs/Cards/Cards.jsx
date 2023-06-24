@@ -42,7 +42,7 @@ const Cards = (props) => {
         sx={{ height: 200 }}
         component="img"
         image={
-          props.image_url ||
+          props.card.image_url ||
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyBnjlgwP0Bb-lsbs-vnXnk7WbwWWQdmuAaSfHVWMJ&s"
         }
         title={props.jop_title}
