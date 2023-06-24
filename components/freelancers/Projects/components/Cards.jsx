@@ -22,7 +22,7 @@ const Cards = (props) => {
                     </Box>   
                 }
             />
-            <CardMedia component="img" height="194" image="/images/freelancers_projects.png" alt="Project" />
+            <CardMedia component="img" height="194" image={props.content.image_urls || "/images/freelancers_projects.png"} alt="Project" />
             <CardContent>
               <Typography variant="body2" color="text.secondary" textAlign="right">
                 {props.content.project_descriotion}
