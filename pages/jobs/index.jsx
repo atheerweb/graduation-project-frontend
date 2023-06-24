@@ -5,11 +5,7 @@ import Main from "@/components/jobs/Main/Main";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 // Hooks
-import { useDispatch } from "react-redux";
 import { useReducer } from "react";
-// API
-import client from "@/lib/client";
-import { setAllJobs } from "@/redux/slices/apiSlice";
 // CSS Modules
 import styles from "@/styles/modules/jobs/jobs.module.css";
 
@@ -21,10 +17,8 @@ export const reducer = (state, action) => {
     }
 }
 
-const Jobs = ({ jobs }) => {
+const Jobs = () => {
     const [filters, setFilters] = useReducer(reducer, { title: "", minPrice: 0, maxPrice: 9999999 });
-    const dispatch = useDispatch();
-    jobs && dispatch(setAllJobs({ value: jobs }));
 
     return (
         <Box className={styles.jobs}>
@@ -37,17 +31,6 @@ const Jobs = ({ jobs }) => {
             </Box>
         </Box>
     )
-}
-
-export const getServerSideProps = async () => {
-    const response = await client.get("/freelance/jobs/");
-    const data = await response.data;
-  
-    return {
-        props: {
-            jobs: data
-        }
-    }
 }
 
 export default Jobs;

@@ -4,19 +4,19 @@ import Cards from "./components/Cards";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
-// Hooks
-import { useSelector } from "react-redux";
 // CSS Modules
 import styles from "@/styles/modules/home/freelancers.module.css";
+import { useApi } from "@/lib/hooks";
 
 const Freelancers = () => {
-    const freelancers = useSelector(state => state.api.value.topFreelancers);
+    const freelancers = useApi("/freelance/top-5-freelancers/");
 
     return (
         <Box className={styles.freelancers}>
             <Typography variant="h2" textAlign="center">أكثر المستقلين طلباً</Typography>
             <Grid className={styles.freelancersCardsGrid}>
                 {
+                    freelancers &&
                     freelancers.map((freelancer, index) => (
                         <Cards key={index} username={freelancer.username} title={`${freelancer.first_name} ${freelancer.last_name}`} body={freelancer.about} />
                     ))

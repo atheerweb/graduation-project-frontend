@@ -5,13 +5,13 @@ import Main from "@/components/freelancers/Main/Main";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 // Hooks
-import { useReducer, useState } from "react";
+import { useReducer } from "react";
 import { useDispatch } from "react-redux";
 // API
-import client from "@/lib/client";
 import { setAllFreelancers } from "@/redux/slices/apiSlice";
 // CSS Modules
 import styles from "@/styles/modules/freelancers/freelancers.module.css";
+import { useApi } from "@/lib/hooks";
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -20,10 +20,11 @@ const reducer = (state, action) => {
     }
 }
 
-const Freelancers = ({ freelancers }) => {
+const Freelancers = () => {
     const [ filters, setFilters ] = useReducer(reducer, {title: "", ratings: 5});
+    const freelancers = useApi("/freelance/all-freelancers/");
     const dispatch = useDispatch();
-    const ratings = freelancers.map(freelancer => (Math.floor((Math.random() * 5) + 1)));
+    const ratings = freelancers && freelancers.map(freelancer => (Math.floor((Math.random() * 5) + 1)));
     freelancers && dispatch(setAllFreelancers({ value: freelancers.map((freelancer, index) => {return { ...freelancer, ratings: ratings[index] }}) }));
 
     return (
@@ -37,17 +38,6 @@ const Freelancers = ({ freelancers }) => {
             </Box>
         </Box>
     )
-}
-
-export const getServerSideProps = async () => {
-    const response = await client.get("/freelance/all-freelancers/");
-    const data = await response.data;
-  
-    return {
-        props: {
-            freelancers: data
-        }
-    }
 }
 
 export default Freelancers;
