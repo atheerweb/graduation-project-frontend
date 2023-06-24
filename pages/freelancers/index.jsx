@@ -45,7 +45,7 @@ export const getServerSideProps = async () => {
   
     return {
         props: {
-            freelancers: data
+            freelancers: !data ? null : data
         }
     }
 }
