@@ -13,7 +13,7 @@ import styles from "@/styles/modules/jobs/proposal.module.css";
 
 const JobProposal = ({ job }) => {
     const dispatch = useDispatch();
-    job && dispatch(setOneJob({ value: job }));
+    dispatch(setOneJob({ value: job }));
 
     return (
         <Box className={styles.proposal}>

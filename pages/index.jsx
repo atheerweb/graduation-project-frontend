@@ -12,7 +12,7 @@ import { setTopFreelancers } from "@/redux/slices/apiSlice";
 
 const Home = ({ topFreelancers }) => {
   const dispatch = useDispatch();
-  topFreelancers && dispatch(setTopFreelancers({value: topFreelancers}));
+  dispatch(setTopFreelancers({value: topFreelancers}));
 
   return (
       <>

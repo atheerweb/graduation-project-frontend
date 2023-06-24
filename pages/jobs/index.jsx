@@ -24,7 +24,7 @@ export const reducer = (state, action) => {
 const Jobs = ({ jobs }) => {
     const [filters, setFilters] = useReducer(reducer, { title: "", minPrice: 0, maxPrice: 9999999 });
     const dispatch = useDispatch();
-    jobs && dispatch(setAllJobs({ value: jobs }));
+    dispatch(setAllJobs({ value: jobs }));
 
     return (
         <Box className={styles.jobs}>

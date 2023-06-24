@@ -9,7 +9,7 @@ import { setOneFreelancer } from "@/redux/slices/apiSlice";
 
 const Freelancer = ({ freelancer }) => {
     const dispatch = useDispatch();
-    freelancer && dispatch(setOneFreelancer({ value: freelancer }));
+    dispatch(setOneFreelancer({ value: freelancer }));
     
     return (
         <>
