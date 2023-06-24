@@ -1,15 +1,17 @@
 // Components
 import Summary from "@/components/freelancers/Summary/Summary";
 import Data from "@/components/freelancers/Data/Data";
-// API
-import client from "@/lib/client";
 // Hooks
 import { useDispatch } from "react-redux";
 import { setOneFreelancer } from "@/redux/slices/apiSlice";
+import { useApi } from "@/lib/hooks";
+import { useRouter } from "next/router";
 
-const Freelancer = ({ freelancer }) => {
+const Freelancer = () => {
+    const { query: { username } } = useRouter();
+    const freelancer = useApi(`/freelance/freelancer/${username}`);
     const dispatch = useDispatch();
-    dispatch(setOneFreelancer({ value: freelancer }));
+    freelancer && dispatch(setOneFreelancer({ value: freelancer }));
     
     return (
         <>
@@ -17,17 +19,6 @@ const Freelancer = ({ freelancer }) => {
             <Data />
         </>
     )
-}
-
-export const getServerSideProps = async (context) => {
-    const response = await client.get(`/freelance/freelancer/${context.query.username}`);
-    const data = await response.data;
-  
-    return {
-        props: {
-            freelancer: !data ? null : data
-        }
-    }
 }
 
 export default Freelancer;
