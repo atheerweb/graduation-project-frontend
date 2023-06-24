@@ -17,7 +17,7 @@ const Cards = (props) => {
       <CardHeader
         sx={{ px: 0 }}
         avatar={
-          <Avatar aria-label="recipe" src={props.card.img_url}>
+          <Avatar aria-label="recipe" src={props.card.user_image[0]}>
             {props.card.user_full_name[0]}
           </Avatar>
         }
@@ -42,9 +42,12 @@ const Cards = (props) => {
         }
       />
       <CardMedia
-        sx={{ height:200 }}
+        sx={{ height: 200 }}
         component="img"
-        image={props.image_url || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyBnjlgwP0Bb-lsbs-vnXnk7WbwWWQdmuAaSfHVWMJ&s'}
+        image={
+          props.image_url ||
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyBnjlgwP0Bb-lsbs-vnXnk7WbwWWQdmuAaSfHVWMJ&s"
+        }
         title={props.jop_title}
       />
       <CardContent>
