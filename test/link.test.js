@@ -1,29 +1,10 @@
-import renderer from "react-test-renderer";
-import Tribute from "../components/common/Tribute/Tribute";
+import { check_balance_empty } from "../lib/initial-balance";
 
-it("changes the class when hovered", () => {
-  const component = renderer.create(
-    <Tribute
-      title={"منصة عربية واعدة لتوصيل الشركات بأصحاب الأعمال"}
-      image={"/images/coffee.png"}
-    ></Tribute>
-  );
-  let tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
+it("puts initial value of 0 in balance if client has no transactions", () => {
+    expect(check_balance_empty(null)).toBe(0)
+});
 
-  // manually trigger the callback
-  renderer.act(() => {
-    tree.props.onMouseEnter();
-  });
-  // re-rendering
-  tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
 
-  // manually trigger the callback
-  renderer.act(() => {
-    tree.props.onMouseLeave();
-  });
-  // re-rendering
-  tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
+it("return balance if exists in balance if client has no transactions", () => {
+    expect(check_balance_empty(200)).toBe(200)
 });
