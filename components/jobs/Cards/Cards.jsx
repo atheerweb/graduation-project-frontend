@@ -33,10 +33,7 @@ const Cards = (props) => {
           >
             <Typography>{props.card.user_full_name[0]}</Typography>
             <Typography>
-              {`منذ ${Math.abs(
-                new Date().getMinutes() -
-                  new Date(props.card.entry_date).getMinutes()
-              )} يوم`}
+              {`${props.card.max_price} - ${props.card.min_price}`}
             </Typography>
           </Box>
         }
@@ -52,7 +49,7 @@ const Cards = (props) => {
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          {props.card.descriotion}
+          {`${props.card.descriotion.substring(1, 35)} ${props.card.descriotion.length >= 35 ? "..." : ""}`}
         </Typography>
       </CardContent>
       <CardActions
