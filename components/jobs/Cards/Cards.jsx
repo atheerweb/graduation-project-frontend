@@ -38,7 +38,7 @@ const Cards = (props) => {
             />
             <CardContent>
                 <Typography variant="body2" color="text.secondary">
-                    {props.card.descriotion}
+                    {`${props.card.descriotion.substring(1, 35)} ${props.card.descriotion.length >= 35 ? "..." : ""}`}
                 </Typography>
             </CardContent>
             <CardActions sx={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>

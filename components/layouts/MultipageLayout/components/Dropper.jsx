@@ -22,13 +22,8 @@ const Dropper = () => {
 
   const handleClose = () => {
     setAnchorEl(null);
-    client
-      .post('/accounts/api/logout/', {
-        username: 'aamerov',
-        password: 'aamer-20162020',
-      })
-      .then(localStorage.removeItem('user'))
-      .then(router.push('/'));
+    localStorage.removeItem('user');
+    router.reload();
   };
 
   const closingHandle = () => {

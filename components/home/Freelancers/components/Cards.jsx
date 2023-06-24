@@ -23,7 +23,7 @@ const Cards = (props) => {
                     {props.title}
                   </Typography>
                   <Typography variant="body2" color={theme.palette.accent.dark}>
-                    {props.body}
+                    {props.body.substring(1, 70) + "..."}
                   </Typography>
                 </CardContent>
             </CardActionArea>
