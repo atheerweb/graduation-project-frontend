@@ -18,7 +18,7 @@ const Freelancers = () => {
                 {
                     freelancers &&
                     freelancers.map((freelancer, index) => (
-                        <Cards key={index} username={freelancer.username} title={`${freelancer.first_name} ${freelancer.last_name}`} body={freelancer.about} />
+                        <Cards key={index} username={freelancer.username} image={freelancer.image_url} title={`${freelancer.first_name} ${freelancer.last_name}`} body={freelancer.about} />
                     ))
                 }
             </Grid>

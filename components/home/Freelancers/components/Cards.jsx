@@ -17,7 +17,7 @@ const Cards = (props) => {
     return (
         <Card onClick={() => router.push(`freelancers/${props.username}`)}>
             <CardActionArea>
-                <CardMedia component="img" image="images/freelancers_images.png" alt="Freelancer" />
+                <CardMedia component="img" image={props.image || "images/freelancers_images.png"} alt="Freelancer" />
                 <CardContent className={styles.freelancersCardsContent}>
                   <Typography className={styles.freelancersCardsHeader} gutterBottom variant="h6" color={theme.palette.accent.dark}>
                     {props.title}
