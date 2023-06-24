@@ -13,7 +13,6 @@ import Rating from "@mui/material/Rating";
 import Typography from "@mui/material/Typography";
 
 const Cards = (props) => {
-  console.log(props.card);
   return (
     <Card sx={{ maxWidth: 345, height: "fit-content" }}>
       <CardHeader
