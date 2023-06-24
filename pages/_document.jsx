@@ -5,6 +5,9 @@ const Document = () => {
     <Html lang="en">
       <Head />
       <link href="https://fonts.googleapis.com/css2?family=Tajawal&display=swap" rel="stylesheet"></link>
+      <title>
+        Alamini | Freelancing Platform
+      </title>
       <body>
         <Main />
         <NextScript />
