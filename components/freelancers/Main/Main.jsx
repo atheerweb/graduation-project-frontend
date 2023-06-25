@@ -11,15 +11,12 @@ const Main = (props) => {
   const filteredCards = useSelector(
     (state) => state.api.value.allFreelancers
   ).filter((card) => {
-    if (props.filters.title) {
       const fullName = `${card.first_name} ${card.last_name}`;
-      if (fullName.toLowerCase().includes(props.filters.title.toLowerCase())) {
+      if (fullName.includes(props.filters.title)) {
         if (card.ratings >= props.filters.ratings) {
           return card;
         }
-      }
     }
-    return card;
   });
 
   return (

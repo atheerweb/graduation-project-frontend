@@ -24,8 +24,7 @@ const Freelancers = () => {
     const [ filters, setFilters ] = useReducer(reducer, {title: "", ratings: 5});
     const freelancers = useApi("/freelance/all-freelancers/");
     const dispatch = useDispatch();
-    const ratings = freelancers && freelancers.map(freelancer => (Math.floor((Math.random() * 5) + 1)));
-    freelancers && dispatch(setAllFreelancers({ value: freelancers.map((freelancer, index) => {return { ...freelancer, ratings: ratings[index] }}) }));
+    freelancers && dispatch(setAllFreelancers({ value: freelancers.map((freelancer, index) => {return { ...freelancer, ratings: Math.floor((Math.random() * 5) + 1) }}) }));
 
     return (
         <Box className={styles.freelancers}>
