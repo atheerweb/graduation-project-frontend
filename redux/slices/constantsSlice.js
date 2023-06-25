@@ -17,6 +17,7 @@ export const constantsSlice = createSlice({
   name: 'constants',
   initialState: {
     value: {
+      ratings: [5, 1, 3, 2, 4, 3, 4, 5, 2, 1, 3, 4, 5, 1, 2, 4, 3, 5 , 1, 2, 3, 4, 3 , 2 , 2, 4, 5, 1, 1, 5, 3, 4, 2, 4, 2, 1, 3, 5, 5, 5, 1, 2, 4, 1, 4, 4, 3, 1, 3, 3 ,2, 2, 1, 5, 5, 4, 1, 2],
       navLinks: [
         { title: 'الرئيسية', href: '/' },
         { title: 'وظائف', href: '/jobs' },

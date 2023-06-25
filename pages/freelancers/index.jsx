@@ -6,7 +6,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 // Hooks
 import { useReducer } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 // API
 import { setAllFreelancers } from "@/redux/slices/apiSlice";
 // CSS Modules
@@ -22,9 +22,10 @@ const reducer = (state, action) => {
 
 const Freelancers = () => {
     const [ filters, setFilters ] = useReducer(reducer, {title: "", ratings: 5});
+    const ratings = useSelector(state => state.constants.value.ratings);
     const freelancers = useApi("/freelance/all-freelancers/");
     const dispatch = useDispatch();
-    freelancers && dispatch(setAllFreelancers({ value: freelancers.map((freelancer, index) => {return { ...freelancer, ratings: Math.floor((Math.random() * 5) + 1) }}) }));
+    freelancers && dispatch(setAllFreelancers({ value: freelancers.map((freelancer, index) => {return { ...freelancer, ratings: ratings[index] }}) }));
 
     return (
         <Box className={styles.freelancers}>
